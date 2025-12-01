@@ -11,3 +11,6 @@ opt.updatetime = 300 -- default 4000, affects CursorHold
 opt.timeoutlen = 400
 
 opt.undofile = true
+opt.swapfile = false
+
+opt.ignorecase = true
