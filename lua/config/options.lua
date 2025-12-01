@@ -6,3 +6,6 @@ opt.signcolumn = "yes" -- prevents layout shift
 opt.wrap = true
 opt.linebreak = true
 opt.breakindent = true
+
+opt.updatetime = 300 -- default 4000, affects CursorHold
+opt.timeoutlen = 400
