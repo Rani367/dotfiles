@@ -14,3 +14,6 @@ opt.undofile = true
 opt.swapfile = false
 
 opt.ignorecase = true
+opt.smartcase = true
+
+opt.splitright = true
