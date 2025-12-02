@@ -25,3 +25,5 @@ opt.sidescrolloff = 8
 opt.clipboard = "unnamedplus"
 opt.shortmess:append("I") -- suppress intro screen
 
+opt.termguicolors = true
+opt.cursorline = true
