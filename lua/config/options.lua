@@ -27,3 +27,6 @@ opt.shortmess:append("I") -- suppress intro screen
 
 opt.termguicolors = true
 opt.cursorline = true
+opt.spell = false
+opt.synmaxcol = 240 -- perf: skip highlighting past this column
+
