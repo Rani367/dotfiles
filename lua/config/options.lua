@@ -22,3 +22,6 @@ opt.splitbelow = true
 opt.scrolloff = 8
 opt.sidescrolloff = 8
 
+opt.clipboard = "unnamedplus"
+opt.shortmess:append("I") -- suppress intro screen
+
