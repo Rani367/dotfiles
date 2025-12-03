@@ -43,3 +43,6 @@ function _G.statusline_mode()
   return mode_map[mode] or mode
 end
 opt.statusline = " %{v:lua.statusline_mode()} │ %f %m%=%l:%c %p%% "
+
+opt.expandtab = true
+opt.shiftwidth = 2
