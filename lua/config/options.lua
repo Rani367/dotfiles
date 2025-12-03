@@ -40,3 +40,6 @@ local mode_map = {
 }
 function _G.statusline_mode()
   local mode = vim.api.nvim_get_mode().mode:sub(1, 1)
+  return mode_map[mode] or mode
+end
+opt.statusline = " %{v:lua.statusline_mode()} │ %f %m%=%l:%c %p%% "
