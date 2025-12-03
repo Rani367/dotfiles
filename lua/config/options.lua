@@ -32,3 +32,6 @@ opt.synmaxcol = 240 -- perf: skip highlighting past this column
 
 opt.laststatus = 2
 opt.showmode = false
+opt.cmdheight = 0
+
+local mode_map = {
