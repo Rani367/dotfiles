@@ -30,3 +30,5 @@ opt.cursorline = true
 opt.spell = false
 opt.synmaxcol = 240 -- perf: skip highlighting past this column
 
+opt.laststatus = 2
+opt.showmode = false
