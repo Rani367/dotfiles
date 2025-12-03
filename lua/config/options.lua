@@ -35,3 +35,6 @@ opt.showmode = false
 opt.cmdheight = 0
 
 local mode_map = {
+  n = "-- NORMAL --", i = "-- INSERT --", v = "-- VISUAL --", V = "-- VISUAL LINE --", ["\22"] = "-- VISUAL BLOCK --",
+  c = "-- COMMAND --", R = "-- REPLACE --", t = "-- TERMINAL --", s = "-- SELECT --", S = "-- SELECT LINE --",
+}
