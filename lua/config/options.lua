@@ -46,3 +46,5 @@ opt.statusline = " %{v:lua.statusline_mode()} │ %f %m%=%l:%c %p%% "
 
 opt.expandtab = true
 opt.shiftwidth = 2
+opt.tabstop = 2
+opt.softtabstop = 2
