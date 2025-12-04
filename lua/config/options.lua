@@ -56,3 +56,6 @@ opt.pumheight = 10
 g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0
 g.loaded_node_provider = 0
+
+opt.lazyredraw = true -- don't redraw during macros
+opt.regexpengine = 1
