@@ -51,3 +51,6 @@ opt.softtabstop = 2
 opt.smartindent = true
 
 opt.completeopt = { "menu", "menuone", "noselect" }
+opt.pumheight = 10
+
+g.loaded_perl_provider = 0
