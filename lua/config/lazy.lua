@@ -22,3 +22,6 @@ require("lazy").setup({
   },
   defaults = {
     lazy = false,
+    version = false,
+  },
+  ui = {
