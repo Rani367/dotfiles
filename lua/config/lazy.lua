@@ -28,3 +28,5 @@ require("lazy").setup({
     border = "rounded",
     backdrop = 100,
   },
+  checker = { enabled = false },
+  performance = {
