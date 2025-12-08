@@ -9,3 +9,5 @@ map("n", "<leader>r", function()
 end, { desc = "Run current file" })
 
 map("t", "<Esc>", function()
+  require("util.runner").hide_terminal()
+end, { desc = "Hide terminal" })
