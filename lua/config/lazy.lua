@@ -41,3 +41,6 @@ require("lazy").setup({
         "tutor",
         "zipPlugin",
       },
+    },
+  },
+})
