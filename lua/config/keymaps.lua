@@ -14,3 +14,6 @@ end, { desc = "Hide terminal" })
 
 map("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Find files" })
 map("n", "<leader>fg", function() Snacks.picker.grep() end, { desc = "Grep" })
+map("n", "<leader>fb", function() Snacks.picker.buffers() end, { desc = "Buffers" })
+map("n", "<leader>fh", function() Snacks.picker.help() end, { desc = "Help tags" })
+map("n", "<leader>fr", function() Snacks.picker.recent() end, { desc = "Recent files" })
