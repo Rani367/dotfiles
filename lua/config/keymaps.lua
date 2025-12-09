@@ -17,3 +17,5 @@ map("n", "<leader>fg", function() Snacks.picker.grep() end, { desc = "Grep" })
 map("n", "<leader>fb", function() Snacks.picker.buffers() end, { desc = "Buffers" })
 map("n", "<leader>fh", function() Snacks.picker.help() end, { desc = "Help tags" })
 map("n", "<leader>fr", function() Snacks.picker.recent() end, { desc = "Recent files" })
+map("n", "<leader><leader>", function() Snacks.picker.buffers() end, { desc = "Buffers" })
+
