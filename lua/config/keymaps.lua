@@ -11,3 +11,6 @@ end, { desc = "Run current file" })
 map("t", "<Esc>", function()
   require("util.runner").hide_terminal()
 end, { desc = "Hide terminal" })
+
+map("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Find files" })
+map("n", "<leader>fg", function() Snacks.picker.grep() end, { desc = "Grep" })
