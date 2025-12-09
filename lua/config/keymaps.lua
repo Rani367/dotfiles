@@ -19,3 +19,6 @@ map("n", "<leader>fh", function() Snacks.picker.help() end, { desc = "Help tags"
 map("n", "<leader>fr", function() Snacks.picker.recent() end, { desc = "Recent files" })
 map("n", "<leader><leader>", function() Snacks.picker.buffers() end, { desc = "Buffers" })
 
+map("n", "<leader>fs", function() Snacks.picker.lsp_symbols() end, { desc = "LSP symbols" })
+map("n", "<leader>fd", function() Snacks.picker.diagnostics() end, { desc = "Diagnostics" })
+
