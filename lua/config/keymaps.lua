@@ -22,3 +22,6 @@ map("n", "<leader><leader>", function() Snacks.picker.buffers() end, { desc = "B
 map("n", "<leader>fs", function() Snacks.picker.lsp_symbols() end, { desc = "LSP symbols" })
 map("n", "<leader>fd", function() Snacks.picker.diagnostics() end, { desc = "Diagnostics" })
 
+map("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
+map("n", "[b", "<cmd>bprev<cr>", { desc = "Previous buffer" })
+map("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Delete buffer" })
