@@ -25,3 +25,6 @@ map("n", "<leader>fd", function() Snacks.picker.diagnostics() end, { desc = "Dia
 map("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
 map("n", "[b", "<cmd>bprev<cr>", { desc = "Previous buffer" })
 map("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Delete buffer" })
+map("n", "<leader>bD", "<cmd>bdelete!<cr>", { desc = "Delete buffer (force)" })
+
+map("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
