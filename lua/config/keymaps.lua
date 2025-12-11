@@ -38,3 +38,6 @@ map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window wi
 map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
 map("v", "J", ":m '>+1<cr>gv=gv", { desc = "Move line down" })
+map("v", "K", ":m '<-2<cr>gv=gv", { desc = "Move line up" })
+
+map("n", "<C-d>", "<C-d>zz", { desc = "Scroll down (centered)" })
