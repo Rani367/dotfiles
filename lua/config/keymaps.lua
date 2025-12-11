@@ -49,3 +49,6 @@ map("n", "N", "Nzzzv", { desc = "Previous search result (centered)" })
 map("v", "<", "<gv", { desc = "Indent left" })
 map("v", ">", ">gv", { desc = "Indent right" })
 
+map("x", "p", [["_dP]], { desc = "Paste without yanking" })
+
+-- native 0.11 LSP: grn (rename), gra (code_action), grr (references), gri (implementation), gO (document_symbol)
