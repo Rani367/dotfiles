@@ -17,3 +17,6 @@ autocmd("VimResized", {
 
 -- restore cursor to last edit position
 autocmd("BufReadPost", {
+  group = augroup("last_position", { clear = true }),
+  callback = function()
+    local mark = vim.api.nvim_buf_get_mark(0, '"')
