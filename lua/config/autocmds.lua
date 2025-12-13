@@ -9,3 +9,5 @@ autocmd("TextYankPost", {
 })
 
 autocmd("VimResized", {
+  group = augroup("resize_splits", { clear = true }),
+  callback = function()
