@@ -14,3 +14,6 @@ autocmd("VimResized", {
     vim.cmd("tabdo wincmd =")
   end,
 })
+
+-- restore cursor to last edit position
+autocmd("BufReadPost", {
