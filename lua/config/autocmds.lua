@@ -36,3 +36,5 @@ autocmd("FileType", {
   end,
 })
 
+autocmd("FileType", {
+  group = augroup("filetype_indent", { clear = true }),
