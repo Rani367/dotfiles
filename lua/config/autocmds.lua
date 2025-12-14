@@ -28,3 +28,5 @@ autocmd("BufReadPost", {
 })
 
 autocmd("FileType", {
+  group = augroup("close_with_q", { clear = true }),
+  pattern = { "help", "lspinfo", "man", "qf", "checkhealth" },
