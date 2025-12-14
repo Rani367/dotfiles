@@ -30,3 +30,6 @@ autocmd("BufReadPost", {
 autocmd("FileType", {
   group = augroup("close_with_q", { clear = true }),
   pattern = { "help", "lspinfo", "man", "qf", "checkhealth" },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
