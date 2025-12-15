@@ -46,3 +46,6 @@ autocmd("FileType", {
   end,
 })
 
+autocmd("TermOpen", {
+  group = augroup("terminal_settings", { clear = true }),
+  callback = function()
