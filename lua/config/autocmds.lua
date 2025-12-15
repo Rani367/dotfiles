@@ -38,3 +38,6 @@ autocmd("FileType", {
 
 autocmd("FileType", {
   group = augroup("filetype_indent", { clear = true }),
+  pattern = { "python", "rust" },
+  callback = function()
+    vim.opt_local.shiftwidth = 4
