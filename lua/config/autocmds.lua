@@ -60,3 +60,6 @@ autocmd("TermOpen", {
 autocmd("VimEnter", {
   group = augroup("auto_file_picker", { clear = true }),
   callback = function()
+    if vim.fn.argc() == 0 then
+      vim.defer_fn(function()
+        local has_real_buffer = false
