@@ -57,3 +57,6 @@ autocmd("TermOpen", {
 })
 
 -- deferred: wait for session restore before opening picker
+autocmd("VimEnter", {
+  group = augroup("auto_file_picker", { clear = true }),
+  callback = function()
