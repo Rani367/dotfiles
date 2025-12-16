@@ -55,3 +55,5 @@ autocmd("TermOpen", {
     vim.opt_local.signcolumn = "no"
   end,
 })
+
+-- deferred: wait for session restore before opening picker
