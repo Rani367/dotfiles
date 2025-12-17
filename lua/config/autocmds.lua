@@ -76,3 +76,6 @@ autocmd("VimEnter", {
     end
   end,
 })
+
+-- only show relative numbers in active window (avoids full-screen redraws)
+local relnum_group = augroup("relative_number_toggle", { clear = true })
