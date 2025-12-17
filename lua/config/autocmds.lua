@@ -68,3 +68,6 @@ autocmd("VimEnter", {
             has_real_buffer = true
             break
           end
+        end
+        if not has_real_buffer then
+          Snacks.picker.files()
