@@ -79,3 +79,6 @@ autocmd("VimEnter", {
 
 -- only show relative numbers in active window (avoids full-screen redraws)
 local relnum_group = augroup("relative_number_toggle", { clear = true })
+autocmd({ "WinEnter", "BufEnter", "FocusGained", "InsertLeave" }, {
+  group = relnum_group,
+  callback = function()
