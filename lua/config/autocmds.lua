@@ -73,3 +73,6 @@ autocmd("VimEnter", {
           Snacks.picker.files()
         end
       end, 0)
+    end
+  end,
+})
