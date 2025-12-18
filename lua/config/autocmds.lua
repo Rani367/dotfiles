@@ -82,3 +82,5 @@ local relnum_group = augroup("relative_number_toggle", { clear = true })
 autocmd({ "WinEnter", "BufEnter", "FocusGained", "InsertLeave" }, {
   group = relnum_group,
   callback = function()
+    if vim.wo.number then
+      vim.wo.relativenumber = true
