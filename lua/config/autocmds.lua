@@ -87,3 +87,6 @@ autocmd({ "WinEnter", "BufEnter", "FocusGained", "InsertLeave" }, {
     end
   end,
 })
+autocmd({ "WinLeave", "BufLeave", "FocusLost", "InsertEnter" }, {
+  group = relnum_group,
+  callback = function()
