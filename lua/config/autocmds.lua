@@ -90,3 +90,5 @@ autocmd({ "WinEnter", "BufEnter", "FocusGained", "InsertLeave" }, {
 autocmd({ "WinLeave", "BufLeave", "FocusLost", "InsertEnter" }, {
   group = relnum_group,
   callback = function()
+    if vim.wo.number then
+      vim.wo.relativenumber = false
