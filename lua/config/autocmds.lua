@@ -92,3 +92,6 @@ autocmd({ "WinLeave", "BufLeave", "FocusLost", "InsertEnter" }, {
   callback = function()
     if vim.wo.number then
       vim.wo.relativenumber = false
+    end
+  end,
+})
