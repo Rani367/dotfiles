@@ -84,3 +84,6 @@ autocmd({ "WinEnter", "BufEnter", "FocusGained", "InsertLeave" }, {
   callback = function()
     if vim.wo.number then
       vim.wo.relativenumber = true
+    end
+  end,
+})
