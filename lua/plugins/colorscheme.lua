@@ -8,3 +8,5 @@ return {
       flavour = "mocha", -- latte, frappe, macchiato, mocha
       transparent_background = false,
       integrations = {
+        blink_cmp = true,
+        mason = true,
