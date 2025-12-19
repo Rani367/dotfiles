@@ -10,3 +10,6 @@ return {
       integrations = {
         blink_cmp = true,
         mason = true,
+        native_lsp = {
+          enabled = true,
+          underlines = {
