@@ -5,3 +5,6 @@ return {
   lazy = false,
   config = function()
     require("catppuccin").setup({
+      flavour = "mocha", -- latte, frappe, macchiato, mocha
+      transparent_background = false,
+      integrations = {
