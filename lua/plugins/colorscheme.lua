@@ -18,3 +18,5 @@ return {
             warnings = { "undercurl" },
             information = { "undercurl" },
           },
+        },
+        treesitter = true,
