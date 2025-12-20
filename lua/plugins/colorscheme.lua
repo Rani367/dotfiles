@@ -13,3 +13,5 @@ return {
         native_lsp = {
           enabled = true,
           underlines = {
+            errors = { "undercurl" },
+            hints = { "undercurl" },
