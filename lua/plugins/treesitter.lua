@@ -10,3 +10,6 @@ return {
     require("nvim-treesitter").install({
       "lua", "vim", "vimdoc", "query",
       "python", "c", "c_sharp", "cpp",
+      "json", "yaml", "toml", "markdown", "markdown_inline",
+      "bash", "gitignore", "gitcommit", "diff",
+    })
