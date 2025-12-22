@@ -13,3 +13,5 @@ return {
       "json", "yaml", "toml", "markdown", "markdown_inline",
       "bash", "gitignore", "gitcommit", "diff",
     })
+  end,
+}
