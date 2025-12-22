@@ -8,3 +8,5 @@ return {
       install_dir = vim.fn.stdpath("data") .. "/site",
     })
     require("nvim-treesitter").install({
+      "lua", "vim", "vimdoc", "query",
+      "python", "c", "c_sharp", "cpp",
