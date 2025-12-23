@@ -4,3 +4,5 @@ return {
   event = "InsertEnter",
   dependencies = {
     "rafamadriz/friendly-snippets",
+  },
+  opts = {
