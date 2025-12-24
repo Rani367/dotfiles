@@ -17,3 +17,6 @@ return {
       },
       menu = { auto_show = true },
       ghost_text = { enabled = false },
+    },
+    sources = {
+      default = { "lsp", "path", "snippets", "buffer" },
