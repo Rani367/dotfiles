@@ -34,3 +34,6 @@ return {
     fuzzy = {
       implementation = "prefer_rust_with_warning",
       sorts = {
+        "score", -- includes frecency bonus
+        "sort_text",
+        "label",
