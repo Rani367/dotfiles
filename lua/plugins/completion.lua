@@ -39,3 +39,6 @@ return {
         "label",
       },
       frecency = { enabled = true },
+      proximity = { enabled = true },
+    },
+    signature = { enabled = true },
