@@ -37,3 +37,5 @@ return {
         "score", -- includes frecency bonus
         "sort_text",
         "label",
+      },
+      frecency = { enabled = true },
