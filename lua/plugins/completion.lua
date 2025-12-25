@@ -28,3 +28,6 @@ return {
               vim.fn.stdpath("data") .. "/lazy/friendly-snippets",
             },
           },
+        },
+      },
+    },
