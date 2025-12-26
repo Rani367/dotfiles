@@ -42,3 +42,6 @@ return {
       proximity = { enabled = true },
     },
     signature = { enabled = true },
+  },
+  opts_extend = { "sources.default" },
+}
