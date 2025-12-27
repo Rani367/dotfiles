@@ -22,3 +22,6 @@ return {
       "neovim/nvim-lspconfig",
     },
     opts = {
+      ensure_installed = { "pyright", "clangd", "lua_ls" },
+    },
+  },
