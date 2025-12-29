@@ -44,3 +44,5 @@ return {
             analysis = {
               typeCheckingMode = "basic",
               autoSearchPaths = true,
+              useLibraryCodeForTypes = true,
+              diagnosticMode = "openFilesOnly",
