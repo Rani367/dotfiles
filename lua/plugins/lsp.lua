@@ -52,3 +52,5 @@ return {
       })
 
       vim.lsp.config("clangd", {
+        capabilities = capabilities,
+        cmd = {
