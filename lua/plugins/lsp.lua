@@ -49,3 +49,6 @@ return {
             },
           },
         },
+      })
+
+      vim.lsp.config("clangd", {
