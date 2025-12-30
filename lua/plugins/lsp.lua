@@ -60,3 +60,5 @@ return {
           "--header-insertion=iwyu",
           "--completion-style=detailed",
         },
+      })
+
