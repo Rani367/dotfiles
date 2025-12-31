@@ -79,3 +79,5 @@ return {
       })
 
       for _, server in ipairs({ "pyright", "clangd", "lua_ls" }) do
+        pcall(vim.lsp.enable, server)
+      end
