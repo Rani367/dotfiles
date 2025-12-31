@@ -73,3 +73,6 @@ return {
             },
             completion = { callSnippet = "Replace" },
             telemetry = { enable = false },
+            diagnostics = { globals = { "vim", "Snacks" } },
+          },
+        },
