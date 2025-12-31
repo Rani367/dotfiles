@@ -81,3 +81,6 @@ return {
       for _, server in ipairs({ "pyright", "clangd", "lua_ls" }) do
         pcall(vim.lsp.enable, server)
       end
+
+      vim.diagnostic.config({
+        virtual_text = { prefix = "●", spacing = 4 },
