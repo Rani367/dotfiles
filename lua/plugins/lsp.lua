@@ -76,3 +76,6 @@ return {
             diagnostics = { globals = { "vim", "Snacks" } },
           },
         },
+      })
+
+      for _, server in ipairs({ "pyright", "clangd", "lua_ls" }) do
