@@ -84,3 +84,6 @@ return {
 
       vim.diagnostic.config({
         virtual_text = { prefix = "●", spacing = 4 },
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = " ",
