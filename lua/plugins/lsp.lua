@@ -92,3 +92,6 @@ return {
             [vim.diagnostic.severity.INFO] = " ",
           },
         },
+        underline = true,
+        update_in_insert = false,
+        severity_sort = true,
