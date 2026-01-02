@@ -97,3 +97,6 @@ return {
         severity_sort = true,
         float = { border = "rounded", source = true },
       })
+    end,
+  },
+}
