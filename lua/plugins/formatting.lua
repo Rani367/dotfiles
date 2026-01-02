@@ -9,3 +9,6 @@ return {
         require("conform").format({ async = true, lsp_format = "fallback" })
       end,
       mode = { "n", "v" },
+      desc = "Format buffer",
+    },
+  },
