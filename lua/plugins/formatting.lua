@@ -18,3 +18,6 @@ return {
       python = { "black" },
       c = { "clang-format" },
       cpp = { "clang-format" },
+      cs = { "csharpier" },
+      json = { "prettier" },
+      yaml = { "prettier" },
