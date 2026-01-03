@@ -21,3 +21,6 @@ return {
       cs = { "csharpier" },
       json = { "prettier" },
       yaml = { "prettier" },
+      markdown = { "prettier" },
+      ["_"] = { "trim_whitespace" },
+    },
