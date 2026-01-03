@@ -24,3 +24,5 @@ return {
       markdown = { "prettier" },
       ["_"] = { "trim_whitespace" },
     },
+    format_on_save = function(bufnr)
+      -- skip large files
