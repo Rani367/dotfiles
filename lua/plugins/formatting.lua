@@ -32,3 +32,6 @@ return {
     notify_on_error = true,
   },
   init = function()
+    vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+  end,
+}
