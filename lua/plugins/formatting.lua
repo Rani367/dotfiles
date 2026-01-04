@@ -29,3 +29,6 @@ return {
       if vim.b[bufnr].large_file then return nil end
       return { timeout_ms = 3000, lsp_format = "fallback" }
     end,
+    notify_on_error = true,
+  },
+  init = function()
