@@ -11,3 +11,6 @@ return {
   },
   config = function(_, opts)
     require("roslyn").setup(opts)
+    vim.lsp.config("roslyn", {
+      capabilities = require("blink.cmp").get_lsp_capabilities(),
+      settings = {
