@@ -3,3 +3,6 @@ return {
   ft = "cs",
   dependencies = {
     "saghen/blink.cmp",
+  },
+  opts = {
+    filewatching = "auto",
