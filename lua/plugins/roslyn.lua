@@ -6,3 +6,5 @@ return {
   },
   opts = {
     filewatching = "auto",
+    broad_search = false,
+    lock_target = false,
