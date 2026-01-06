@@ -26,3 +26,6 @@ return {
           dotnet_enable_tests_code_lens = true,
         },
       },
+    })
+  end,
+}
