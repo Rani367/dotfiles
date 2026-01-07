@@ -6,3 +6,6 @@ return {
       enabled = true,
       interval = 60,
       notify = false,
+    },
+    options = {
+      "binary", "bufhidden", "buflisted", "diff", "filetype",
