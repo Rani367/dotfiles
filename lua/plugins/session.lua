@@ -12,3 +12,6 @@ return {
       "foldcolumn", "foldexpr", "foldlevel", "foldmethod",
       "foldminlines", "foldnestmax", "foldtext",
       "list", "modifiable", "previewwindow", "readonly",
+      "scrollbind", "shiftwidth", "spell", "tabstop",
+      "winfixheight", "winfixwidth", "wrap",
+    },
