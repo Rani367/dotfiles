@@ -9,3 +9,6 @@ return {
     },
     options = {
       "binary", "bufhidden", "buflisted", "diff", "filetype",
+      "foldcolumn", "foldexpr", "foldlevel", "foldmethod",
+      "foldminlines", "foldnestmax", "foldtext",
+      "list", "modifiable", "previewwindow", "readonly",
