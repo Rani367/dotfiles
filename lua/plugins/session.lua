@@ -15,3 +15,6 @@ return {
       "scrollbind", "shiftwidth", "spell", "tabstop",
       "winfixheight", "winfixwidth", "wrap",
     },
+  },
+  config = function(_, opts)
+    local resession = require("resession")
