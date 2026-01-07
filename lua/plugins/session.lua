@@ -4,3 +4,5 @@ return {
   opts = {
     autosave = {
       enabled = true,
+      interval = 60,
+      notify = false,
