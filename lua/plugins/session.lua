@@ -23,3 +23,6 @@ return {
     vim.api.nvim_create_autocmd("VimLeavePre", {
       group = vim.api.nvim_create_augroup("resession_autosave", { clear = true }),
       callback = function()
+        resession.save(vim.fn.getcwd(), { notify = false })
+      end,
+    })
