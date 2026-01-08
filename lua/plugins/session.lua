@@ -26,3 +26,6 @@ return {
         resession.save(vim.fn.getcwd(), { notify = false })
       end,
     })
+
+    vim.api.nvim_create_autocmd("VimEnter", {
+      nested = true,
