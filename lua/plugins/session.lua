@@ -29,3 +29,6 @@ return {
 
     vim.api.nvim_create_autocmd("VimEnter", {
       nested = true,
+      group = vim.api.nvim_create_augroup("resession_autoload", { clear = true }),
+      callback = function()
+        if vim.fn.argc() == 0 then
