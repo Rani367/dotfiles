@@ -18,3 +18,5 @@ return {
   },
   config = function(_, opts)
     local resession = require("resession")
+    resession.setup(opts)
+
