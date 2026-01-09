@@ -34,3 +34,6 @@ return {
         if vim.fn.argc() == 0 then
           vim.schedule(function()
             resession.load(vim.fn.getcwd(), { silence_errors = true })
+          end)
+        end
+      end,
