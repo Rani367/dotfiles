@@ -32,3 +32,5 @@ return {
       group = vim.api.nvim_create_augroup("resession_autoload", { clear = true }),
       callback = function()
         if vim.fn.argc() == 0 then
+          vim.schedule(function()
+            resession.load(vim.fn.getcwd(), { silence_errors = true })
