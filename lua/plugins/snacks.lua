@@ -10,3 +10,6 @@ return {
           hidden = false,
           ignored = false,
           exclude = { "bin", "obj", "node_modules", ".git" },
+        },
+        buffers = {
+          format = "file",
