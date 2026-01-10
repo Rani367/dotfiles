@@ -6,3 +6,5 @@ return {
     picker = {
       enabled = true,
       sources = {
+        files = {
+          hidden = false,
