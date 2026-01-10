@@ -16,3 +16,5 @@ return {
           transform = function(item)
             item.pos = nil
           end,
+        },
+      },
