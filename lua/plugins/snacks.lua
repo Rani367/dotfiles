@@ -8,3 +8,5 @@ return {
       sources = {
         files = {
           hidden = false,
+          ignored = false,
+          exclude = { "bin", "obj", "node_modules", ".git" },
