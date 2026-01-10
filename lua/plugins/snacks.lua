@@ -13,3 +13,6 @@ return {
         },
         buffers = {
           format = "file",
+          transform = function(item)
+            item.pos = nil
+          end,
