@@ -26,3 +26,5 @@ return {
     indent = { enabled = false },
     input = { enabled = false },
     notifier = { enabled = false },
+    quickfile = { enabled = false },
+    scope = { enabled = false },
