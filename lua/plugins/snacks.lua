@@ -18,3 +18,5 @@ return {
           end,
         },
       },
+    },
+    terminal = { enabled = true },
