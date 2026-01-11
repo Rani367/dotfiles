@@ -20,3 +20,6 @@ return {
       },
     },
     terminal = { enabled = true },
+    bigfile = { enabled = true },
+    dashboard = { enabled = false },
+    explorer = { enabled = false },
