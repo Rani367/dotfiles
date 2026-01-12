@@ -6,3 +6,6 @@ local function find_exe(candidates)
   for _, exe in ipairs(candidates) do
     if has(exe) then return exe end
   end
+end
+local _counter = 0
+local function tmpfile(prefix, ext)
