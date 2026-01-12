@@ -9,3 +9,5 @@ local function find_exe(candidates)
 end
 local _counter = 0
 local function tmpfile(prefix, ext)
+  _counter = _counter + 1
+  local name = string.format("%s_%d_%d_%d", prefix, vim.fn.getpid(), vim.uv.hrtime(), _counter)
