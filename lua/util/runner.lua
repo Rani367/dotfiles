@@ -19,3 +19,6 @@ local TERM_ID = "file_runner"
 
 local function has_main_function(filepath)
   local f = io.open(filepath, "r")
+  if not f then return false end
+  local content = f:read("*a")
+  f:close()
