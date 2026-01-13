@@ -14,3 +14,6 @@ local function tmpfile(prefix, ext)
   if ext then name = name .. "." .. ext end
   return (os.getenv("TMPDIR") or "/tmp") .. "/" .. name
 end
+
+local TERM_ID = "file_runner"
+
