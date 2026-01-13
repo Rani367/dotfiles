@@ -22,3 +22,6 @@ local function has_main_function(filepath)
   if not f then return false end
   local content = f:read("*a")
   f:close()
+  -- %f[%w] = word boundary, catches int/void main(...) variants
+  return content:match("%f[%w]main%s*%(") ~= nil
+end
