@@ -17,3 +17,5 @@ end
 
 local TERM_ID = "file_runner"
 
+local function has_main_function(filepath)
+  local f = io.open(filepath, "r")
