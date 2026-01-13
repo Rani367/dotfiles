@@ -11,3 +11,6 @@ local _counter = 0
 local function tmpfile(prefix, ext)
   _counter = _counter + 1
   local name = string.format("%s_%d_%d_%d", prefix, vim.fn.getpid(), vim.uv.hrtime(), _counter)
+  if ext then name = name .. "." .. ext end
+  return (os.getenv("TMPDIR") or "/tmp") .. "/" .. name
+end
