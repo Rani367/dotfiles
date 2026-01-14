@@ -35,3 +35,6 @@ local function get_dependent_sources(file, extension)
     if has_main_function(f) then
       main_count = main_count + 1
       if main_count > 1 then break end
+    end
+  end
+
