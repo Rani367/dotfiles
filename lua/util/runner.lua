@@ -30,3 +30,6 @@ local function get_dependent_sources(file, extension)
   local dir = vim.fn.fnamemodify(file, ":h")
   local all_files = vim.fn.glob(dir .. "/*." .. extension, false, true)
 
+  local main_count = 0
+  for _, f in ipairs(all_files) do
+    if has_main_function(f) then
