@@ -27,3 +27,6 @@ local function has_main_function(filepath)
 end
 
 local function get_dependent_sources(file, extension)
+  local dir = vim.fn.fnamemodify(file, ":h")
+  local all_files = vim.fn.glob(dir .. "/*." .. extension, false, true)
+
