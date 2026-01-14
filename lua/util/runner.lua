@@ -25,3 +25,5 @@ local function has_main_function(filepath)
   -- %f[%w] = word boundary, catches int/void main(...) variants
   return content:match("%f[%w]main%s*%(") ~= nil
 end
+
+local function get_dependent_sources(file, extension)
