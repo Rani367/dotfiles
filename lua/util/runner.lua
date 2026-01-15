@@ -52,3 +52,5 @@ local function get_run_command(ft, file)
   handlers = {
     python = function()
       local py = find_exe({ "python3", "python" })
+      if not py then return nil, "python3 not found" end
+      return py .. " " .. esc(file)
