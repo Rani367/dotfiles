@@ -49,3 +49,6 @@ end
 
 local function get_run_command(ft, file)
   local handlers
+  handlers = {
+    python = function()
+      local py = find_exe({ "python3", "python" })
