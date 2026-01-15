@@ -46,3 +46,6 @@ local function get_dependent_sources(file, extension)
   end
   return escaped
 end
+
+local function get_run_command(ft, file)
+  local handlers
