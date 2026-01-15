@@ -38,3 +38,6 @@ local function get_dependent_sources(file, extension)
     end
   end
 
+  -- multiple mains = independent files, compile only current
+  local to_compile = main_count > 1 and { file } or all_files
+  local escaped = {}
