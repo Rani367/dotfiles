@@ -41,3 +41,6 @@ local function get_dependent_sources(file, extension)
   -- multiple mains = independent files, compile only current
   local to_compile = main_count > 1 and { file } or all_files
   local escaped = {}
+  for _, f in ipairs(to_compile) do
+    table.insert(escaped, esc(f))
+  end
