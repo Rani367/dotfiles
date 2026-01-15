@@ -44,3 +44,5 @@ local function get_dependent_sources(file, extension)
   for _, f in ipairs(to_compile) do
     table.insert(escaped, esc(f))
   end
+  return escaped
+end
