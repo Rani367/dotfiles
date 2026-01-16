@@ -57,3 +57,6 @@ local function get_run_command(ft, file)
     end,
 
     cs = function()
+      if not has("dotnet") then return nil, "dotnet not found" end
+      local dir = vim.fn.fnamemodify(file, ":h")
+      local csproj = vim.fn.glob(dir .. "/*.csproj", false, true)
