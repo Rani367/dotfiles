@@ -62,3 +62,6 @@ local function get_run_command(ft, file)
       local csproj = vim.fn.glob(dir .. "/*.csproj", false, true)
       if #csproj > 0 then
         return "dotnet run --project " .. esc(csproj[1])
+      end
+      return "cd " .. esc(dir) .. " && dotnet run"
+    end,
