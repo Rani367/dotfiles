@@ -65,3 +65,6 @@ local function get_run_command(ft, file)
       end
       return "cd " .. esc(dir) .. " && dotnet run"
     end,
+
+    c = function()
+      local cc = find_exe({ "clang", "gcc" })
