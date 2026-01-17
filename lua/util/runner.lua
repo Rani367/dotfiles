@@ -73,3 +73,6 @@ local function get_run_command(ft, file)
       if vim.fn.filereadable(dir .. "/Makefile") == 1 or vim.fn.filereadable(dir .. "/makefile") == 1 then
         return "cd " .. esc(dir) .. " && make run 2>/dev/null || make && ./a.out"
       end
+      local sources = get_dependent_sources(file, "c")
+      local out = tmpfile("c_out")
+      return cc .. " -std=c11 -Wall -Wextra -o " .. esc(out) .. " " .. table.concat(sources, " ") .. " && " .. esc(out)
