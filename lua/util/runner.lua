@@ -68,3 +68,5 @@ local function get_run_command(ft, file)
 
     c = function()
       local cc = find_exe({ "clang", "gcc" })
+      if not cc then return nil, "C compiler not found" end
+      local dir = vim.fn.fnamemodify(file, ":h")
