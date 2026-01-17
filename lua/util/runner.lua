@@ -78,3 +78,6 @@ local function get_run_command(ft, file)
       return cc .. " -std=c11 -Wall -Wextra -o " .. esc(out) .. " " .. table.concat(sources, " ") .. " && " .. esc(out)
     end,
 
+    cpp = function()
+      local cxx = find_exe({ "g++", "clang++", "c++" })
+      if not cxx then return nil, "C++ compiler not found" end
