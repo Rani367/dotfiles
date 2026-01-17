@@ -76,3 +76,5 @@ local function get_run_command(ft, file)
       local sources = get_dependent_sources(file, "c")
       local out = tmpfile("c_out")
       return cc .. " -std=c11 -Wall -Wextra -o " .. esc(out) .. " " .. table.concat(sources, " ") .. " && " .. esc(out)
+    end,
+
