@@ -70,3 +70,6 @@ local function get_run_command(ft, file)
       local cc = find_exe({ "clang", "gcc" })
       if not cc then return nil, "C compiler not found" end
       local dir = vim.fn.fnamemodify(file, ":h")
+      if vim.fn.filereadable(dir .. "/Makefile") == 1 or vim.fn.filereadable(dir .. "/makefile") == 1 then
+        return "cd " .. esc(dir) .. " && make run 2>/dev/null || make && ./a.out"
+      end
