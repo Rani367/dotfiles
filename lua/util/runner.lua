@@ -92,3 +92,5 @@ local function get_run_command(ft, file)
 
     lua = function()
       local lua = find_exe({ "luajit", "lua5.4", "lua5.3", "lua5.1", "lua" })
+      if not lua then return nil, "lua not found" end
+      return lua .. " " .. esc(file)
