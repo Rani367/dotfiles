@@ -89,3 +89,6 @@ local function get_run_command(ft, file)
       local out = tmpfile("cpp_out")
       return cxx .. " -std=c++17 -Wall -Wextra -o " .. esc(out) .. " " .. table.concat(sources, " ") .. " && " .. esc(out)
     end,
+
+    lua = function()
+      local lua = find_exe({ "luajit", "lua5.4", "lua5.3", "lua5.1", "lua" })
