@@ -86,3 +86,6 @@ local function get_run_command(ft, file)
         return "cd " .. esc(dir) .. " && make run 2>/dev/null || make && ./a.out"
       end
       local sources = get_dependent_sources(file, "cpp")
+      local out = tmpfile("cpp_out")
+      return cxx .. " -std=c++17 -Wall -Wextra -o " .. esc(out) .. " " .. table.concat(sources, " ") .. " && " .. esc(out)
+    end,
