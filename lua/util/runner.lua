@@ -108,3 +108,5 @@ local function get_run_command(ft, file)
       if has("npx") then return "npx --yes tsx " .. esc(file) end
       return nil, "tsx/bun/npx not found"
     end,
+
+    typescriptreact = function() return handlers.typescript() end,
