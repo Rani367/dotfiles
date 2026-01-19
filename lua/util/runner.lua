@@ -105,3 +105,6 @@ local function get_run_command(ft, file)
     typescript = function()
       if has("tsx") then return "tsx " .. esc(file) end
       if has("bun") then return "bun run " .. esc(file) end
+      if has("npx") then return "npx --yes tsx " .. esc(file) end
+      return nil, "tsx/bun/npx not found"
+    end,
