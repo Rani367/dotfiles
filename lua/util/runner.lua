@@ -102,3 +102,6 @@ local function get_run_command(ft, file)
       return node .. " " .. esc(file)
     end,
 
+    typescript = function()
+      if has("tsx") then return "tsx " .. esc(file) end
+      if has("bun") then return "bun run " .. esc(file) end
