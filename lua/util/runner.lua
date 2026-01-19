@@ -97,3 +97,6 @@ local function get_run_command(ft, file)
     end,
 
     javascript = function()
+      local node = find_exe({ "node", "nodejs" })
+      if not node then return nil, "node not found" end
+      return node .. " " .. esc(file)
