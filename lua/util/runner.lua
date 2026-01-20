@@ -110,3 +110,6 @@ local function get_run_command(ft, file)
     end,
 
     typescriptreact = function() return handlers.typescript() end,
+
+    sh = function() return "bash " .. esc(file) end,
+    bash = function() return handlers.sh() end,
