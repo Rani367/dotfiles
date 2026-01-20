@@ -121,3 +121,6 @@ local function get_run_command(ft, file)
 
     go = function()
       if not has("go") then return nil, "go not found" end
+      return "go run " .. esc(file)
+    end,
+
