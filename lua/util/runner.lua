@@ -124,3 +124,5 @@ local function get_run_command(ft, file)
       return "go run " .. esc(file)
     end,
 
+    rust = function()
+      if not has("rustc") then return nil, "rustc not found" end
