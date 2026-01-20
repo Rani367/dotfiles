@@ -116,3 +116,5 @@ local function get_run_command(ft, file)
 
     zsh = function()
       if not has("zsh") then return nil, "zsh not found" end
+      return "zsh " .. esc(file)
+    end,
