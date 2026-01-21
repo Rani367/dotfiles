@@ -126,3 +126,6 @@ local function get_run_command(ft, file)
 
     rust = function()
       if not has("rustc") then return nil, "rustc not found" end
+      local out = tmpfile("rust_out")
+      return "rustc -o " .. esc(out) .. " " .. esc(file) .. " && " .. esc(out)
+    end,
