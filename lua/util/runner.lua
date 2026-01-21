@@ -129,3 +129,6 @@ local function get_run_command(ft, file)
       local out = tmpfile("rust_out")
       return "rustc -o " .. esc(out) .. " " .. esc(file) .. " && " .. esc(out)
     end,
+  }
+
+  local handler = handlers[ft]
