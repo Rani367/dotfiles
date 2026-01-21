@@ -137,3 +137,6 @@ local function get_run_command(ft, file)
 end
 
 function M.hide_terminal()
+  local ok, snacks = pcall(require, "snacks")
+  if ok and snacks.terminal then
+    snacks.terminal.toggle(nil, { id = TERM_ID })
