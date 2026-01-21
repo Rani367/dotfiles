@@ -132,3 +132,5 @@ local function get_run_command(ft, file)
   }
 
   local handler = handlers[ft]
+  if not handler then return nil, "no runner for " .. ft end
+  return handler()
