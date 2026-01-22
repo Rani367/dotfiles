@@ -143,3 +143,5 @@ function M.hide_terminal()
   end
 end
 
+function M.run_current_file()
+  if not pcall(vim.cmd, "write") then
