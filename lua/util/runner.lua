@@ -145,3 +145,6 @@ end
 
 function M.run_current_file()
   if not pcall(vim.cmd, "write") then
+    vim.notify("Failed to save file", vim.log.levels.ERROR)
+    return
+  end
