@@ -151,3 +151,5 @@ function M.run_current_file()
 
   local ft = vim.bo.filetype
   local file = vim.fn.expand("%:p")
+  if vim.fn.filereadable(file) ~= 1 then
+    vim.notify("File not found: " .. file, vim.log.levels.ERROR)
