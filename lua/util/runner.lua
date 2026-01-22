@@ -148,3 +148,6 @@ function M.run_current_file()
     vim.notify("Failed to save file", vim.log.levels.ERROR)
     return
   end
+
+  local ft = vim.bo.filetype
+  local file = vim.fn.expand("%:p")
