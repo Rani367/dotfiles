@@ -161,3 +161,6 @@ function M.run_current_file()
     vim.notify(err, vim.log.levels.WARN)
     return
   end
+
+  local full_cmd = "clear && " .. cmd
+
