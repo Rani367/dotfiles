@@ -159,3 +159,5 @@ function M.run_current_file()
   local cmd, err = get_run_command(ft, file)
   if not cmd then
     vim.notify(err, vim.log.levels.WARN)
+    return
+  end
