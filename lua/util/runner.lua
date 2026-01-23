@@ -164,3 +164,6 @@ function M.run_current_file()
 
   local full_cmd = "clear && " .. cmd
 
+  local ok, snacks = pcall(require, "snacks")
+  if ok and snacks.terminal then
+    local term_ok = pcall(function()
