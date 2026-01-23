@@ -167,3 +167,5 @@ function M.run_current_file()
   local ok, snacks = pcall(require, "snacks")
   if ok and snacks.terminal then
     local term_ok = pcall(function()
+      snacks.terminal.open(full_cmd, {
+        id = TERM_ID,
