@@ -172,3 +172,6 @@ function M.run_current_file()
         auto_close = false,
         interactive = true,
       })
+    end)
+    if term_ok then return end
+  end
