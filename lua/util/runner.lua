@@ -177,3 +177,6 @@ function M.run_current_file()
   end
 
   vim.cmd("split | terminal " .. full_cmd)
+end
+
+return M
