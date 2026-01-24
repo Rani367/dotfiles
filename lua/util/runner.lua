@@ -169,3 +169,6 @@ function M.run_current_file()
     local term_ok = pcall(function()
       snacks.terminal.open(full_cmd, {
         id = TERM_ID,
+        auto_close = false,
+        interactive = true,
+      })
