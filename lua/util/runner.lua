@@ -175,3 +175,5 @@ function M.run_current_file()
     end)
     if term_ok then return end
   end
+
+  vim.cmd("split | terminal " .. full_cmd)
