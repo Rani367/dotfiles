@@ -7,3 +7,5 @@
       "} ${1:name};"
     ],
     "description": "Packed struct typedef"
+  }
+}
