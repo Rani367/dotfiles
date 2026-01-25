@@ -1,2 +1,4 @@
 {
   "packed struct": {
+    "prefix": "pstruct",
+    "body": [
