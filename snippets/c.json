@@ -5,3 +5,5 @@
       "typedef struct __attribute__((__packed__)) {",
       "\t$0",
       "} ${1:name};"
+    ],
+    "description": "Packed struct typedef"
