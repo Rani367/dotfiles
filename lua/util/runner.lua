@@ -71,7 +71,7 @@ local function get_run_command(ft, file)
       if not cc then return nil, "C compiler not found" end
       local dir = vim.fn.fnamemodify(file, ":h")
       if vim.fn.filereadable(dir .. "/Makefile") == 1 or vim.fn.filereadable(dir .. "/makefile") == 1 then
-        return "cd " .. esc(dir) .. " && make run 2>/dev/null || make && ./a.out"
+        return "cd " .. esc(dir) .. " && make run 2>/dev/null || make"
       end
       local sources = get_dependent_sources(file, "c")
       local out = tmpfile("c_out")
@@ -83,7 +83,7 @@ local function get_run_command(ft, file)
       if not cxx then return nil, "C++ compiler not found" end
       local dir = vim.fn.fnamemodify(file, ":h")
       if vim.fn.filereadable(dir .. "/Makefile") == 1 or vim.fn.filereadable(dir .. "/makefile") == 1 then
-        return "cd " .. esc(dir) .. " && make run 2>/dev/null || make && ./a.out"
+        return "cd " .. esc(dir) .. " && make run 2>/dev/null || make"
       end
       local sources = get_dependent_sources(file, "cpp")
       local out = tmpfile("cpp_out")
@@ -94,40 +94,6 @@ local function get_run_command(ft, file)
       local lua = find_exe({ "luajit", "lua5.4", "lua5.3", "lua5.1", "lua" })
       if not lua then return nil, "lua not found" end
       return lua .. " " .. esc(file)
-    end,
-
-    javascript = function()
-      local node = find_exe({ "node", "nodejs" })
-      if not node then return nil, "node not found" end
-      return node .. " " .. esc(file)
-    end,
-
-    typescript = function()
-      if has("tsx") then return "tsx " .. esc(file) end
-      if has("bun") then return "bun run " .. esc(file) end
-      if has("npx") then return "npx --yes tsx " .. esc(file) end
-      return nil, "tsx/bun/npx not found"
-    end,
-
-    typescriptreact = function() return handlers.typescript() end,
-
-    sh = function() return "bash " .. esc(file) end,
-    bash = function() return handlers.sh() end,
-
-    zsh = function()
-      if not has("zsh") then return nil, "zsh not found" end
-      return "zsh " .. esc(file)
-    end,
-
-    go = function()
-      if not has("go") then return nil, "go not found" end
-      return "go run " .. esc(file)
-    end,
-
-    rust = function()
-      if not has("rustc") then return nil, "rustc not found" end
-      local out = tmpfile("rust_out")
-      return "rustc -o " .. esc(out) .. " " .. esc(file) .. " && " .. esc(out)
     end,
   }
 

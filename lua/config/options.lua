@@ -27,21 +27,13 @@ opt.shortmess:append("I") -- suppress intro screen
 
 opt.termguicolors = true
 opt.cursorline = true
-opt.spell = false
 opt.synmaxcol = 240 -- perf: skip highlighting past this column
 
 opt.laststatus = 2
 opt.showmode = false
 opt.cmdheight = 0
 
-local mode_map = {
-  n = "-- NORMAL --", i = "-- INSERT --", v = "-- VISUAL --", V = "-- VISUAL LINE --", ["\22"] = "-- VISUAL BLOCK --",
-  c = "-- COMMAND --", R = "-- REPLACE --", t = "-- TERMINAL --", s = "-- SELECT --", S = "-- SELECT LINE --",
-}
-function _G.statusline_mode()
-  local mode = vim.api.nvim_get_mode().mode:sub(1, 1)
-  return mode_map[mode] or mode
-end
+require("util.statusline")
 opt.statusline = " %{v:lua.statusline_mode()} │ %f %m%=%l:%c %p%% "
 
 opt.expandtab = true
@@ -57,5 +49,3 @@ g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0
 g.loaded_node_provider = 0
 
-opt.lazyredraw = true -- don't redraw during macros
-opt.regexpengine = 1

@@ -35,7 +35,7 @@ return {
       },
     },
     fuzzy = {
-      implementation = "prefer_rust_with_warning",
+      implementation = "prefer_rust",
       sorts = {
         "score", -- includes frecency bonus
         "sort_text",

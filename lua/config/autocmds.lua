@@ -15,7 +15,6 @@ autocmd("VimResized", {
   end,
 })
 
--- restore cursor to last edit position
 autocmd("BufReadPost", {
   group = augroup("last_position", { clear = true }),
   callback = function()
@@ -56,22 +55,12 @@ autocmd("TermOpen", {
   end,
 })
 
--- deferred: wait for session restore before opening picker
 autocmd("VimEnter", {
   group = augroup("auto_file_picker", { clear = true }),
   callback = function()
     if vim.fn.argc() == 0 then
       vim.defer_fn(function()
-        local has_real_buffer = false
-        for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-          if vim.api.nvim_buf_is_loaded(buf) and vim.bo[buf].buflisted and vim.api.nvim_buf_get_name(buf) ~= "" then
-            has_real_buffer = true
-            break
-          end
-        end
-        if not has_real_buffer then
-          Snacks.picker.files()
-        end
+        Snacks.picker.files()
       end, 0)
     end
   end,

@@ -79,7 +79,10 @@ return {
       })
 
       for _, server in ipairs({ "pyright", "clangd", "lua_ls" }) do
-        pcall(vim.lsp.enable, server)
+        local ok, err = pcall(vim.lsp.enable, server)
+        if not ok then
+          vim.notify("LSP: failed to enable " .. server .. ": " .. err, vim.log.levels.WARN)
+        end
       end
 
       vim.diagnostic.config({
