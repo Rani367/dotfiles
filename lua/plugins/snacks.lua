@@ -9,7 +9,7 @@ return {
         files = {
           hidden = false,
           ignored = false,
-          exclude = { "bin", "obj", "node_modules", ".git" },
+          exclude = { "bin", "obj", "node_modules", ".git", "build" },
         },
         buffers = {
           format = "file",
