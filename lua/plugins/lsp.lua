@@ -1,105 +1,28 @@
 return {
-  {
-    "mason-org/mason.nvim",
-    cmd = "Mason",
-    build = ":MasonUpdate",
-    opts = {
-      ui = {
-        border = "rounded",
-        icons = {
-          package_installed = "✓",
-          package_pending = "➜",
-          package_uninstalled = "✗",
-        },
+  "mason-org/mason.nvim",
+  cmd = "Mason",
+  build = ":MasonUpdate",
+  opts = {
+    ui = {
+      icons = {
+        package_installed = "✓",
+        package_pending = "➜",
+        package_uninstalled = "✗",
       },
     },
   },
+  config = function(_, opts)
+    require("mason").setup(opts)
 
-  {
-    "mason-org/mason-lspconfig.nvim",
-    dependencies = {
-      "mason-org/mason.nvim",
-      "neovim/nvim-lspconfig",
-    },
-    opts = {
-      ensure_installed = { "pyright", "clangd", "lua_ls" },
-    },
-  },
-
-  {
-    "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      "mason-org/mason.nvim",
-      "mason-org/mason-lspconfig.nvim",
-      "saghen/blink.cmp",
-    },
-    config = function()
-      local capabilities = require("blink.cmp").get_lsp_capabilities()
-
-      vim.lsp.config("pyright", {
-        capabilities = capabilities,
-        settings = {
-          python = {
-            analysis = {
-              typeCheckingMode = "standard",
-              autoSearchPaths = true,
-              useLibraryCodeForTypes = true,
-              diagnosticMode = "openFilesOnly",
-            },
-          },
-        },
-      })
-
-      vim.lsp.config("clangd", {
-        capabilities = capabilities,
-        cmd = {
-          "clangd",
-          "--background-index",
-          "--clang-tidy",
-          "--header-insertion=iwyu",
-          "--completion-style=detailed",
-        },
-      })
-
-      vim.lsp.config("lua_ls", {
-        capabilities = capabilities,
-        settings = {
-          Lua = {
-            runtime = { version = "LuaJIT" },
-            workspace = {
-              checkThirdParty = false,
-              library = { vim.env.VIMRUNTIME },
-            },
-            completion = { callSnippet = "Replace" },
-            telemetry = { enable = false },
-            diagnostics = { globals = { "vim", "Snacks" } },
-          },
-        },
-      })
-
-      for _, server in ipairs({ "pyright", "clangd", "lua_ls" }) do
-        local ok, err = pcall(vim.lsp.enable, server)
-        if not ok then
-          vim.notify("LSP: failed to enable " .. server .. ": " .. err, vim.log.levels.WARN)
+    local ensure_installed = { "pyright", "clangd", "lua-language-server" }
+    local mr = require("mason-registry")
+    mr.refresh(function()
+      for _, tool in ipairs(ensure_installed) do
+        local p = mr.get_package(tool)
+        if not p:is_installed() then
+          p:install()
         end
       end
-
-      vim.diagnostic.config({
-        virtual_text = { prefix = "●", spacing = 4 },
-        signs = {
-          text = {
-            [vim.diagnostic.severity.ERROR] = " ",
-            [vim.diagnostic.severity.WARN] = " ",
-            [vim.diagnostic.severity.HINT] = " ",
-            [vim.diagnostic.severity.INFO] = " ",
-          },
-        },
-        underline = true,
-        update_in_insert = false,
-        severity_sort = true,
-        float = { border = "rounded", source = true },
-      })
-    end,
-  },
+    end)
+  end,
 }

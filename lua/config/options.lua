@@ -28,6 +28,7 @@ opt.shortmess:append("I") -- suppress intro screen
 opt.termguicolors = true
 opt.cursorline = true
 opt.synmaxcol = 240 -- perf: skip highlighting past this column
+opt.winborder = "rounded"
 
 opt.laststatus = 2
 opt.showmode = false
@@ -48,4 +49,21 @@ opt.pumheight = 10
 g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0
 g.loaded_node_provider = 0
+g.loaded_python3_provider = 0
+
+vim.diagnostic.config({
+  virtual_text = { prefix = "●", spacing = 4 },
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = " ",
+      [vim.diagnostic.severity.WARN] = " ",
+      [vim.diagnostic.severity.HINT] = " ",
+      [vim.diagnostic.severity.INFO] = " ",
+    },
+  },
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+  float = { source = true },
+})
 

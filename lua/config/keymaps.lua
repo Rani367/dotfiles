@@ -21,8 +21,6 @@ map("n", "<leader><leader>", function() Snacks.picker.buffers() end, { desc = "B
 map("n", "<leader>fs", function() Snacks.picker.lsp_symbols() end, { desc = "LSP symbols" })
 map("n", "<leader>fd", function() Snacks.picker.diagnostics() end, { desc = "Diagnostics" })
 
-map("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
-map("n", "[b", "<cmd>bprev<cr>", { desc = "Previous buffer" })
 map("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Delete buffer" })
 map("n", "<leader>bD", "<cmd>bdelete!<cr>", { desc = "Delete buffer (force)" })
 
@@ -51,6 +49,4 @@ map("v", ">", ">gv", { desc = "Indent right" })
 map("x", "p", [["_dP]], { desc = "Paste without yanking" })
 
 -- native 0.11 LSP: grn (rename), gra (code_action), grr (references), gri (implementation), gO (document_symbol)
-map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
-map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename symbol" })
 map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line diagnostics" })
