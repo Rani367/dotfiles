@@ -5,11 +5,22 @@ return {
   opts = {
     picker = {
       enabled = true,
+      limit = 10000,
+      limit_live = 10000,
+      matcher = {
+        fuzzy = true,
+        smartcase = true,
+        filename_bonus = true,
+        file_pos = true,
+        cwd_bonus = false,
+        frecency = false,
+        history_bonus = false,
+      },
       sources = {
         files = {
           hidden = false,
           ignored = false,
-          exclude = { "bin", "obj", "node_modules", ".git", "build" },
+          exclude = { "bin", "obj", "node_modules", ".git", "build", "dist", "target", ".cache", "vendor", "__pycache__", ".next", ".nuxt", "coverage", ".venv", "venv" },
         },
         buffers = {
           format = "file",
