@@ -4,6 +4,14 @@ My personal dotfiles for Neovim and WezTerm.
 
 ## Install
 
+One-liner:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Rani367/dotfiles/main/install.sh | bash
+```
+
+Or manually:
+
 ```bash
 git clone https://github.com/Rani367/dotfiles ~/dotfiles
 cd ~/dotfiles
