@@ -27,7 +27,7 @@ config.audible_bell = "Disabled"
 -- Background image with TokyoNight overlay
 config.background = {
 	{
-		source = { File = wezterm.home_dir .. "/.config/nvim/images/background.jpg" },
+		source = { File = wezterm.home_dir .. "/dotfiles/images/background.jpg" },
 		hsb = { brightness = 0.1 },
 		width = "Cover",
 		height = "Cover",

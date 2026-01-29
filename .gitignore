@@ -1,10 +1,10 @@
 # Neovim
-.netrwhist
-spell/
+nvim/.netrwhist
+nvim/spell/
 
 # OS
 .DS_Store
 Thumbs.db
 
 # Local overrides
-lua/local.lua
+nvim/lua/local.lua
