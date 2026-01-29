@@ -42,7 +42,6 @@ return {
         "label",
       },
       frecency = { enabled = true },
-      proximity = { enabled = true },
     },
     cmdline = {
       enabled = true,
