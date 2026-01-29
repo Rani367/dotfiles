@@ -23,9 +23,22 @@ config.visual_bell = {
 	fade_out_duration_ms = 0,
 }
 config.audible_bell = "Disabled"
--- Transparency and blur
-config.window_background_opacity = 0.85
-config.macos_window_background_blur = 20
+
+-- Background image with TokyoNight overlay
+config.background = {
+	{
+		source = { File = wezterm.home_dir .. "/.config/nvim/images/background.jpg" },
+		hsb = { brightness = 0.1 },
+		width = "Cover",
+		height = "Cover",
+	},
+	{
+		source = { Color = "#1a1b26" },
+		opacity = 0.85,
+		width = "100%",
+		height = "100%",
+	},
+}
 
 -- TokyoNight colors
 config.colors = {
