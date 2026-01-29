@@ -23,16 +23,21 @@ config.visual_bell = {
 	fade_out_duration_ms = 0,
 }
 config.audible_bell = "Disabled"
+-- Transparency and blur
+config.window_background_opacity = 0.85
+config.macos_window_background_blur = 20
+
+-- TokyoNight colors
 config.colors = {
-	foreground = "#cdd6f4",
-	background = "#1e1e2e",
-	cursor_bg = "#f5e0dc",
-	cursor_border = "#f5e0dc",
-	cursor_fg = "#1e1e2e",
-	selection_bg = "#585b70",
-	selection_fg = "#cdd6f4",
-	ansi = { "#45475a", "#f38ba8", "#a6e3a1", "#f9e2af", "#89b4fa", "#f5c2e7", "#94e2d5", "#bac2de" },
-	brights = { "#585b70", "#f38ba8", "#a6e3a1", "#f9e2af", "#89b4fa", "#f5c2e7", "#94e2d5", "#a6adc8" },
+	foreground = "#c0caf5",
+	background = "#1a1b26",
+	cursor_bg = "#c0caf5",
+	cursor_border = "#c0caf5",
+	cursor_fg = "#1a1b26",
+	selection_bg = "#283457",
+	selection_fg = "#c0caf5",
+	ansi = { "#15161e", "#f7768e", "#9ece6a", "#e0af68", "#7aa2f7", "#bb9af7", "#7dcfff", "#a9b1d6" },
+	brights = { "#414868", "#f7768e", "#9ece6a", "#e0af68", "#7aa2f7", "#bb9af7", "#7dcfff", "#c0caf5" },
 }
 
 local act = wezterm.action
