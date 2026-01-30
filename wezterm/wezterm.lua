@@ -28,13 +28,13 @@ config.audible_bell = "Disabled"
 config.background = {
 	{
 		source = { File = wezterm.home_dir .. "/dotfiles/images/background.jpg" },
-		hsb = { brightness = 0.1 },
+		hsb = { brightness = 0.2 },
 		width = "Cover",
 		height = "Cover",
 	},
 	{
 		source = { Color = "#1a1b26" },
-		opacity = 0.85,
+		opacity = 0.4,
 		width = "100%",
 		height = "100%",
 	},
@@ -66,7 +66,7 @@ config.keys = {
 
 local mux = wezterm.mux
 
-wezterm.on('gui-startup', function(cmd)
+wezterm.on("gui-startup", function(cmd)
 	local tab, pane, window = mux.spawn_window(cmd or {})
 	window:gui_window():maximize()
 end)
