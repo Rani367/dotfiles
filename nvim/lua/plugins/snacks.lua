@@ -22,6 +22,11 @@ return {
           ignored = false,
           exclude = { "bin", "obj", "node_modules", ".git", "build", "dist", "target", ".cache", "vendor", "__pycache__", ".next", ".nuxt", "coverage", ".venv", "venv" },
         },
+        grep = {
+          hidden = false,
+          ignored = false,
+          exclude = { "bin", "obj", "node_modules", ".git", "build", "dist", "target", ".cache", "vendor", "__pycache__", ".next", ".nuxt", "coverage", ".venv", "venv" },
+        },
         buffers = {
           format = "file",
           transform = function(item)
