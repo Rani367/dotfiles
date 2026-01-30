@@ -1,3 +1,4 @@
+-- mason manages lsp server binaries
 return {
   "mason-org/mason.nvim",
   cmd = "Mason",

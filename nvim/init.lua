@@ -1,3 +1,4 @@
+-- nvim config entry point
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 

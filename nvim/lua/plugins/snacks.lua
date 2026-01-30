@@ -5,6 +5,7 @@ return {
   opts = {
     picker = {
       enabled = true,
+      -- cap results to keep ui responsive in large repos
       limit = 5000,
       limit_live = 3000,
       matcher = {
@@ -12,6 +13,7 @@ return {
         smartcase = true,
         filename_bonus = true,
         file_pos = true,
+        -- disable smart ranking, prefer exact matching
         cwd_bonus = false,
         frecency = false,
         history_bonus = false,
@@ -43,6 +45,7 @@ return {
         grep = {
           hidden = false,
           ignored = false,
+          -- perf: limit rg work to avoid freezing on huge repos
           args = {
             "--threads=4",
             "--max-columns=200",

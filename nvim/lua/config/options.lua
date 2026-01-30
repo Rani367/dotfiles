@@ -10,6 +10,7 @@ opt.breakindent = true
 opt.updatetime = 300 -- default 4000, affects CursorHold
 opt.timeoutlen = 400
 
+-- persistent undo across sessions, swap is just overhead for local editing
 opt.undofile = true
 opt.swapfile = false
 
@@ -19,6 +20,7 @@ opt.smartcase = true
 opt.splitright = true
 opt.splitbelow = true
 
+-- 8 lines of context when scrolling
 opt.scrolloff = 8
 opt.sidescrolloff = 8
 
@@ -47,6 +49,7 @@ opt.smartindent = true
 opt.completeopt = { "menu", "menuone", "noselect" }
 opt.pumheight = 10
 
+-- disable remote providers, not using any plugins that need them
 g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0
 g.loaded_node_provider = 0

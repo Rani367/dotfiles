@@ -35,6 +35,7 @@ autocmd("FileType", {
   end,
 })
 
+-- pep8 and rust style guide use 4-space indent
 autocmd("FileType", {
   group = augroup("filetype_indent", { clear = true }),
   pattern = { "python", "rust" },
@@ -52,17 +53,6 @@ autocmd("TermOpen", {
     vim.opt_local.number = false
     vim.opt_local.relativenumber = false
     vim.opt_local.signcolumn = "no"
-  end,
-})
-
-autocmd("VimEnter", {
-  group = augroup("auto_file_picker", { clear = true }),
-  callback = function()
-    if vim.fn.argc() == 0 then
-      vim.defer_fn(function()
-        Snacks.picker.files()
-      end, 0)
-    end
   end,
 })
 

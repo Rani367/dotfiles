@@ -1,3 +1,4 @@
+-- run files from nvim with a single keypress
 local M = {}
 
 local function esc(path) return vim.fn.shellescape(path, 1) end
@@ -7,6 +8,7 @@ local function find_exe(candidates)
     if has(exe) then return exe end
   end
 end
+-- counter ensures unique tmpfile names even within same millisecond
 local _counter = 0
 local function tmpfile(prefix, ext)
   _counter = _counter + 1
@@ -22,7 +24,7 @@ local function has_main_function(filepath)
   if not f then return false end
   local content = f:read("*a")
   f:close()
-  -- %f[%w] = word boundary, catches int/void main(...) variants
+  -- word boundary to avoid matching "mainloop" etc
   return content:match("%f[%w]main%s*%(") ~= nil
 end
 
@@ -38,7 +40,7 @@ local function get_dependent_sources(file, extension)
     end
   end
 
-  -- multiple mains = independent files, compile only current
+  -- multiple mains means separate programs, compile only current file
   local to_compile = main_count > 1 and { file } or all_files
   local escaped = {}
   for _, f in ipairs(to_compile) do

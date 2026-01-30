@@ -6,12 +6,12 @@ return {
     Lua = {
       runtime = { version = "LuaJIT" },
       workspace = {
-        checkThirdParty = false,
-        library = { vim.env.VIMRUNTIME },
+        checkThirdParty = false, -- skip annoying "do you want to configure?" prompts
+        library = { vim.env.VIMRUNTIME }, -- make lsp aware of nvim runtime for vim.* completions
       },
       completion = { callSnippet = "Replace" },
       telemetry = { enable = false },
-      diagnostics = { globals = { "vim", "Snacks" } },
+      diagnostics = { globals = { "vim", "Snacks" } }, -- suppress undefined-global warnings
     },
   },
 }

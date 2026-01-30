@@ -15,10 +15,11 @@ return {
         auto_show = false,
       },
       menu = { auto_show = true },
-      ghost_text = { enabled = false },
+      ghost_text = { enabled = false }, -- distracting while typing
     },
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
+      -- score_offset controls source priority: higher = ranked first
       providers = {
         lsp = { score_offset = 100 },
         snippets = {

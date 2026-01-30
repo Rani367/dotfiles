@@ -21,7 +21,7 @@ require("lazy").setup({
     { import = "plugins" },
   },
   defaults = {
-    lazy = true,
+    lazy = true, -- lazy-load everything unless plugin says otherwise
     version = false,
   },
   ui = {
@@ -30,6 +30,7 @@ require("lazy").setup({
   checker = { enabled = false },
   performance = {
     rtp = {
+      -- builtin plugins never used, skip loading them
       disabled_plugins = {
         "gzip",
         "matchit",

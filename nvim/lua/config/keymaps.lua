@@ -37,6 +37,7 @@ map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window w
 map("v", "J", ":m '>+1<cr>gv=gv", { desc = "Move line down" })
 map("v", "K", ":m '<-2<cr>gv=gv", { desc = "Move line up" })
 
+-- zz centers cursor after jump, keeps context visible
 map("n", "<C-d>", "<C-d>zz", { desc = "Scroll down (centered)" })
 map("n", "<C-u>", "<C-u>zz", { desc = "Scroll up (centered)" })
 
@@ -46,6 +47,7 @@ map("n", "N", "Nzzzv", { desc = "Previous search result (centered)" })
 map("v", "<", "<gv", { desc = "Indent left" })
 map("v", ">", ">gv", { desc = "Indent right" })
 
+-- paste over selection without clobbering the register
 map("x", "p", [["_dP]], { desc = "Paste without yanking" })
 
 -- native 0.11 LSP: grn (rename), gra (code_action), grr (references), gri (implementation), gO (document_symbol)

@@ -1,6 +1,6 @@
 # Dotfiles
 
-My personal dotfiles for Neovim and WezTerm.
+My dotfiles for Neovim and WezTerm.
 
 ## Install
 

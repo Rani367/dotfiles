@@ -1,3 +1,4 @@
+-- syntax highlighting and text objects via tree-sitter
 return {
   "nvim-treesitter/nvim-treesitter",
   branch = "main",

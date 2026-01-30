@@ -5,10 +5,10 @@ return {
   settings = {
     python = {
       analysis = {
-        typeCheckingMode = "standard",
+        typeCheckingMode = "standard", -- "basic" is too lenient, "strict" is overkill
         autoSearchPaths = true,
         useLibraryCodeForTypes = true,
-        diagnosticMode = "openFilesOnly",
+        diagnosticMode = "openFilesOnly", -- perf: don't analyze entire workspace
       },
     },
   },
