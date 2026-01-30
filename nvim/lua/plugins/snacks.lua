@@ -5,8 +5,8 @@ return {
   opts = {
     picker = {
       enabled = true,
-      limit = 10000,
-      limit_live = 10000,
+      limit = 5000,
+      limit_live = 3000,
       matcher = {
         fuzzy = true,
         smartcase = true,
@@ -15,17 +15,41 @@ return {
         cwd_bonus = false,
         frecency = false,
         history_bonus = false,
+        sort_empty = false,
+        ignorecase = true,
+      },
+      previewers = {
+        file = {
+          max_size = 512 * 1024,
+          max_line_length = 300,
+        },
+      },
+      win = {
+        preview = {
+          wo = {
+            number = false,
+            relativenumber = false,
+            cursorline = false,
+            signcolumn = "no",
+            wrap = false,
+          },
+        },
       },
       sources = {
         files = {
           hidden = false,
           ignored = false,
-          exclude = { "bin", "obj", "node_modules", ".git", "build", "dist", "target", ".cache", "vendor", "__pycache__", ".next", ".nuxt", "coverage", ".venv", "venv" },
         },
         grep = {
           hidden = false,
           ignored = false,
-          exclude = { "bin", "obj", "node_modules", ".git", "build", "dist", "target", ".cache", "vendor", "__pycache__", ".next", ".nuxt", "coverage", ".venv", "venv" },
+          args = {
+            "--threads=4",
+            "--max-columns=200",
+            "--max-columns-preview",
+            "--max-filesize=1M",
+            "--no-messages",
+          },
         },
         buffers = {
           format = "file",

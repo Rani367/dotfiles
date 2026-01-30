@@ -29,6 +29,7 @@ opt.termguicolors = true
 opt.cursorline = true
 opt.synmaxcol = 240 -- perf: skip highlighting past this column
 opt.winborder = "rounded"
+opt.fillchars = { eob = " " } -- hide ~ on empty lines
 
 opt.laststatus = 2
 opt.showmode = false
