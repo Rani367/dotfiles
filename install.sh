@@ -10,12 +10,14 @@ fi
 
 # Backup existing configs if they're not already symlinks
 [ -e ~/.config/nvim ] && [ ! -L ~/.config/nvim ] && mv ~/.config/nvim ~/.config/nvim.bak
+[ -e ~/.config/zed ] && [ ! -L ~/.config/zed ] && mv ~/.config/zed ~/.config/zed.bak
 [ -e ~/.wezterm.lua ] && [ ! -L ~/.wezterm.lua ] && mv ~/.wezterm.lua ~/.wezterm.lua.bak
 [ -e ~/.ignore ] && [ ! -L ~/.ignore ] && mv ~/.ignore ~/.ignore.bak
 
 # Create symlinks
 mkdir -p ~/.config
 ln -sf "$DOTFILES/nvim" ~/.config/nvim
+ln -sf "$DOTFILES/zed" ~/.config/zed
 ln -sf "$DOTFILES/wezterm/wezterm.lua" ~/.wezterm.lua
 ln -sf "$DOTFILES/.ignore" ~/.ignore
 
