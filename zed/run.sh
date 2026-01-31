@@ -23,7 +23,24 @@ case "$EXT" in
         ;;
     c)
         cd "$DIR"
-        if [[ -f Makefile || -f makefile ]]; then
+        # Find project root (look for CMakeLists.txt up to 3 levels up)
+        PROJECT_ROOT="$DIR"
+        for i in . .. ../.. ../../..; do
+            if [[ -f "$DIR/$i/CMakeLists.txt" ]]; then
+                PROJECT_ROOT="$(cd "$DIR/$i" && pwd)"
+                break
+            fi
+        done
+
+        if [[ -f "$PROJECT_ROOT/CMakeLists.txt" ]]; then
+            # CMake project
+            cd "$PROJECT_ROOT"
+            mkdir -p build && cd build
+            cmake .. && cmake --build .
+            # Find and run the executable (first one found)
+            EXEC=$(find . -maxdepth 1 -type f -perm +111 ! -name "*.cmake" | head -1)
+            [[ -n "$EXEC" ]] && "$EXEC"
+        elif [[ -f Makefile || -f makefile ]]; then
             make && "./$(basename "$DIR")" 2>/dev/null || make run 2>/dev/null || ./main 2>/dev/null || ./a.out
         else
             # Compile all .c files in directory
@@ -32,7 +49,24 @@ case "$EXT" in
         ;;
     cpp|cc|cxx)
         cd "$DIR"
-        if [[ -f Makefile || -f makefile ]]; then
+        # Find project root (look for CMakeLists.txt up to 3 levels up)
+        PROJECT_ROOT="$DIR"
+        for i in . .. ../.. ../../..; do
+            if [[ -f "$DIR/$i/CMakeLists.txt" ]]; then
+                PROJECT_ROOT="$(cd "$DIR/$i" && pwd)"
+                break
+            fi
+        done
+
+        if [[ -f "$PROJECT_ROOT/CMakeLists.txt" ]]; then
+            # CMake project
+            cd "$PROJECT_ROOT"
+            mkdir -p build && cd build
+            cmake .. && cmake --build .
+            # Find and run the executable (first one found)
+            EXEC=$(find . -maxdepth 1 -type f -perm +111 ! -name "*.cmake" | head -1)
+            [[ -n "$EXEC" ]] && "$EXEC"
+        elif [[ -f Makefile || -f makefile ]]; then
             make && "./$(basename "$DIR")" 2>/dev/null || make run 2>/dev/null || ./main 2>/dev/null || ./a.out
         else
             # Compile all C++ files in directory

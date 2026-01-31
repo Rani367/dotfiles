@@ -2,7 +2,7 @@
 
 My dotfiles for Neovim, Zed, and WezTerm.
 
-> **Note:** Currently transitioning from Neovim to Zed for a more modern GUI experience.
+> **Note:** Primarily using Neovim. Zed config included for occasional use, but not planning to switch anytime soon.
 
 ## Install
 
