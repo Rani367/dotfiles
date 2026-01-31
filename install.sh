@@ -23,8 +23,10 @@ ln -sf "$DOTFILES/.ignore" ~/.ignore
 
 echo "Dotfiles installed!"
 
-# Install neovim plugins (runs headless, auto-closes when done)
+# Install neovim plugins and LSP servers
 echo "Installing Neovim plugins..."
 nvim --headless "+Lazy! sync" +qa
+echo "Installing language servers..."
+nvim --headless -c "MasonToolsInstallSync" -c "q"
 
 echo "Done!"

@@ -56,6 +56,17 @@ autocmd("TermOpen", {
   end,
 })
 
+autocmd("VimEnter", {
+  group = augroup("auto_file_picker", { clear = true }),
+  callback = function()
+    if vim.fn.argc() == 0 then
+      vim.defer_fn(function()
+        Snacks.picker.files()
+      end, 0)
+    end
+  end,
+})
+
 -- only show relative numbers in active window (avoids full-screen redraws)
 local relnum_group = augroup("relative_number_toggle", { clear = true })
 autocmd({ "WinEnter", "BufEnter", "FocusGained", "InsertLeave" }, {
