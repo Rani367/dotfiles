@@ -1,10 +1,6 @@
-# Neovim
-nvim/.netrwhist
-nvim/spell/
+# Zed
+zed/prompts/
 
 # OS
 .DS_Store
 Thumbs.db
-
-# Local overrides
-nvim/lua/local.lua

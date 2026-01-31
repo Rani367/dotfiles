@@ -1,8 +1,6 @@
 # Dotfiles
 
-My dotfiles for Neovim, Zed, and WezTerm.
-
-> **Note:** Primarily using Neovim. Zed config included for occasional use, but not planning to switch anytime soon.
+My dotfiles for Zed and WezTerm.
 
 ## Install
 
@@ -24,8 +22,7 @@ cd ~/dotfiles
 
 ```
 dotfiles/
-├── nvim/          # Neovim config → ~/.config/nvim
-├── zed/           # Zed config → ~/.config/zed
+├── zed/           # Zed config → ~/Library/Application Support/Zed/
 ├── wezterm/       # WezTerm config → ~/.wezterm.lua
 ├── images/        # Shared assets (background image)
 └── install.sh     # Symlink installer
@@ -33,7 +30,6 @@ dotfiles/
 
 ## Requirements
 
-- [Neovim](https://neovim.io/) 0.10+
 - [Zed](https://zed.dev/)
 - [WezTerm](https://wezfurlong.org/wezterm/)
 - [FiraCode Nerd Font](https://www.nerdfonts.com/)

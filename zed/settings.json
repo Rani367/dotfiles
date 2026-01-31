@@ -7,17 +7,37 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  // UI elements to hide
+  "assistant": { "button": false },
+  "chat_panel": { "button": false },
+  "collaboration_panel": { "button": false },
+  "project_panel": { "button": false },
+  "notification_panel": { "button": false },
+  "outline_panel": { "button": false },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false,
+    "selections_menu": false
+  },
+  "title_bar": {
+    "show_branch_icon": false,
+    "show_branch_name": false
+  },
+
+  "session": {
+    "trust_all_worktrees": true
+  },
   "icon_theme": {
     "mode": "system",
     "light": "Zed (Default)",
     "dark": "Zed (Default)"
   },
   "telemetry": {
-    "diagnostics": true,
+    "diagnostics": false,
     "metrics": false
   },
-  "ui_font_size": 16,
-  "buffer_font_size": 15,
+  "ui_font_size": 20,
+  "buffer_font_size": 22,
   "theme": {
     "mode": "system",
     "light": "One Light",
@@ -49,7 +69,10 @@
       "formatter": {
         "external": {
           "command": "black",
-          "arguments": ["-", "--quiet"]
+          "arguments": [
+            "-",
+            "--quiet"
+          ]
         }
       }
     },
@@ -57,7 +80,9 @@
       "formatter": {
         "external": {
           "command": "clang-format",
-          "arguments": ["--assume-filename={buffer_path}"]
+          "arguments": [
+            "--assume-filename={buffer_path}"
+          ]
         }
       }
     },
@@ -65,7 +90,9 @@
       "formatter": {
         "external": {
           "command": "clang-format",
-          "arguments": ["--assume-filename={buffer_path}"]
+          "arguments": [
+            "--assume-filename={buffer_path}"
+          ]
         }
       }
     },
@@ -73,7 +100,10 @@
       "formatter": {
         "external": {
           "command": "dotnet",
-          "arguments": ["csharpier", "--write-stdout"]
+          "arguments": [
+            "csharpier",
+            "--write-stdout"
+          ]
         }
       }
     },
@@ -81,7 +111,10 @@
       "formatter": {
         "external": {
           "command": "prettier",
-          "arguments": ["--stdin-filepath", "{buffer_path}"]
+          "arguments": [
+            "--stdin-filepath",
+            "{buffer_path}"
+          ]
         }
       }
     },
@@ -89,7 +122,10 @@
       "formatter": {
         "external": {
           "command": "prettier",
-          "arguments": ["--stdin-filepath", "{buffer_path}"]
+          "arguments": [
+            "--stdin-filepath",
+            "{buffer_path}"
+          ]
         }
       }
     },
@@ -97,7 +133,10 @@
       "formatter": {
         "external": {
           "command": "prettier",
-          "arguments": ["--stdin-filepath", "{buffer_path}"]
+          "arguments": [
+            "--stdin-filepath",
+            "{buffer_path}"
+          ]
         }
       }
     }
