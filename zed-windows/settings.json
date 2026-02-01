@@ -1,15 +1,5 @@
 // Zed settings (Windows)
 {
-  "features": {
-    "edit_prediction_provider": "ollama"
-  },
-  "edit_predictions": {
-    "ollama": {
-      "model": "qwen2.5-coder:1.5b",
-      "api_url": "http://localhost:11434",
-      "max_tokens": 150
-    }
-  },
   "collaboration_panel": {
     "button": false
   },
