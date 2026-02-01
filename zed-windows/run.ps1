@@ -36,7 +36,7 @@ switch ($Extension) {
                 Set-Location $ProjectRoot
                 if (-not (Test-Path "build")) { New-Item -ItemType Directory -Name "build" | Out-Null }
                 Set-Location "build"
-                cmake .. && cmake --build .
+                cmake ..; if ($LASTEXITCODE -eq 0) { cmake --build . }
                 # Find and run the executable
                 $exec = Get-ChildItem -File | Where-Object { $_.Extension -eq ".exe" } | Select-Object -First 1
                 if ($exec) { & $exec.FullName }
@@ -79,7 +79,7 @@ switch ($Extension) {
                 Set-Location $ProjectRoot
                 if (-not (Test-Path "build")) { New-Item -ItemType Directory -Name "build" | Out-Null }
                 Set-Location "build"
-                cmake .. && cmake --build .
+                cmake ..; if ($LASTEXITCODE -eq 0) { cmake --build . }
                 # Find and run the executable
                 $exec = Get-ChildItem -File | Where-Object { $_.Extension -eq ".exe" } | Select-Object -First 1
                 if ($exec) { & $exec.FullName }
