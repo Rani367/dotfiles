@@ -1,0 +1,128 @@
+// Zed settings (Windows)
+{
+  "features": {
+    "edit_prediction_provider": "ollama"
+  },
+  "edit_predictions": {
+    "ollama": {
+      "model": "qwen2.5-coder:1.5b",
+      "api_url": "http://localhost:11434",
+      "max_tokens": 150
+    }
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+  "project_panel": {
+    "button": false
+  },
+  "notification_panel": {
+    "button": false
+  },
+  "outline_panel": {
+    "button": false
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false,
+    "selections_menu": false
+  },
+  "title_bar": {
+    "show_branch_icon": false,
+    "show_branch_name": false
+  },
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "icon_theme": {
+    "mode": "system",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "ui_font_size": 20,
+  "buffer_font_size": 22,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "One Dark"
+  },
+  "format_on_save": "on",
+  "formatter": "language_server",
+  "lsp": {
+    "clangd": {
+      "binary": {
+        "arguments": [
+          "--background-index",
+          "--clang-tidy",
+          "--header-insertion=iwyu"
+        ]
+      }
+    }
+  },
+  "languages": {
+    "Python": {
+      "language_servers": ["basedpyright", "ruff"],
+      "formatter": [
+        {
+          "language_server": {
+            "name": "ruff"
+          }
+        }
+      ]
+    },
+    "C": {
+      "formatter": "language_server"
+    },
+    "C++": {
+      "formatter": "language_server"
+    },
+    "C#": {
+      "formatter": {
+        "external": {
+          "command": "dotnet",
+          "arguments": [
+            "csharpier",
+            "--write-stdout"
+          ]
+        }
+      }
+    },
+    "JSON": {
+      "formatter": {
+        "external": {
+          "command": "prettier",
+          "arguments": [
+            "--stdin-filepath",
+            "{buffer_path}"
+          ]
+        }
+      }
+    },
+    "YAML": {
+      "formatter": {
+        "external": {
+          "command": "prettier",
+          "arguments": [
+            "--stdin-filepath",
+            "{buffer_path}"
+          ]
+        }
+      }
+    },
+    "Markdown": {
+      "formatter": {
+        "external": {
+          "command": "prettier",
+          "arguments": [
+            "--stdin-filepath",
+            "{buffer_path}"
+          ]
+        }
+      }
+    }
+  }
+}

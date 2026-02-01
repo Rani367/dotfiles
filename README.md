@@ -22,10 +22,11 @@ cd ~/dotfiles
 
 ```
 dotfiles/
-├── zed/           # Zed config → ~/Library/Application Support/Zed/
+├── zed/           # Zed config (macOS) → ~/Library/Application Support/Zed/
+├── zed-windows/   # Zed config (Windows) → %APPDATA%\Zed\
 ├── wezterm/       # WezTerm config → ~/.wezterm.lua
 ├── images/        # Shared assets (background image)
-└── install.sh     # Symlink installer
+└── install.sh     # Symlink installer (macOS)
 ```
 
 ## Windows 11 (Zed only)
@@ -33,10 +34,10 @@ dotfiles/
 PowerShell one-liner to install Zed config:
 
 ```powershell
-irm https://raw.githubusercontent.com/Rani367/dotfiles/main/zed/settings.json -OutFile "$env:APPDATA\Zed\settings.json"; irm https://raw.githubusercontent.com/Rani367/dotfiles/main/zed/keymap.json -OutFile "$env:APPDATA\Zed\keymap.json"; irm https://raw.githubusercontent.com/Rani367/dotfiles/main/zed/tasks.json -OutFile "$env:APPDATA\Zed\tasks.json"
+md "$env:APPDATA\Zed" -Force; @('settings.json','keymap.json','tasks.json','run.ps1') | % { irm "https://raw.githubusercontent.com/Rani367/dotfiles/main/zed-windows/$_" -OutFile "$env:APPDATA\Zed\$_" }
 ```
 
-This copies the config files directly to `%APPDATA%\Zed\` (avoids Windows symlink issues).
+This downloads Windows-compatible config files to `%APPDATA%\Zed\` including a PowerShell code runner script.
 
 ## Requirements
 
