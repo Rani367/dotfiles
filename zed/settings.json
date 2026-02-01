@@ -1,19 +1,17 @@
 // Zed settings
-//
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p)
 {
-  // UI elements to hide
-  "assistant": { "button": false },
-  "chat_panel": { "button": false },
-  "collaboration_panel": { "button": false },
-  "project_panel": { "button": false },
-  "notification_panel": { "button": false },
-  "outline_panel": { "button": false },
+  "collaboration_panel": {
+    "button": false
+  },
+  "project_panel": {
+    "button": false
+  },
+  "notification_panel": {
+    "button": false
+  },
+  "outline_panel": {
+    "button": false
+  },
   "toolbar": {
     "breadcrumbs": false,
     "quick_actions": false,
@@ -23,7 +21,6 @@
     "show_branch_icon": false,
     "show_branch_name": false
   },
-
   "session": {
     "trust_all_worktrees": true
   },
@@ -46,55 +43,46 @@
   "format_on_save": "on",
   "formatter": "language_server",
   "lsp": {
-    "pyright": {
+    "basedpyright": {
       "settings": {
         "python": {
-          "analysis": {
-            "diagnosticMode": "openFilesOnly",
-            "typeCheckingMode": "standard"
-          }
+          "pythonPath": "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3"
+        },
+        "basedpyright.analysis": {
+          "diagnosticMode": "openFilesOnly",
+          "typeCheckingMode": "standard",
+          "extraPaths": [
+            "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages"
+          ]
         }
       }
     },
     "clangd": {
-      "arguments": [
-        "--background-index",
-        "--clang-tidy",
-        "--header-insertion=iwyu"
-      ]
+      "binary": {
+        "arguments": [
+          "--background-index",
+          "--clang-tidy",
+          "--header-insertion=iwyu"
+        ]
+      }
     }
   },
   "languages": {
     "Python": {
-      "formatter": {
-        "external": {
-          "command": "black",
-          "arguments": [
-            "-",
-            "--quiet"
-          ]
+      "language_servers": ["basedpyright", "ruff"],
+      "formatter": [
+        {
+          "language_server": {
+            "name": "ruff"
+          }
         }
-      }
+      ]
     },
     "C": {
-      "formatter": {
-        "external": {
-          "command": "clang-format",
-          "arguments": [
-            "--assume-filename={buffer_path}"
-          ]
-        }
-      }
+      "formatter": "language_server"
     },
     "C++": {
-      "formatter": {
-        "external": {
-          "command": "clang-format",
-          "arguments": [
-            "--assume-filename={buffer_path}"
-          ]
-        }
-      }
+      "formatter": "language_server"
     },
     "C#": {
       "formatter": {
