@@ -43,37 +43,15 @@ case "$EXT" in
         elif [[ -f Makefile || -f makefile ]]; then
             make && "./$(basename "$DIR")" 2>/dev/null || make run 2>/dev/null || ./main 2>/dev/null || ./a.out
         else
-            # Compile all .c files in directory
-            clang -std=c11 -Wall -Wextra -o "/tmp/$NAME" *.c && "/tmp/$NAME"
-        fi
-        ;;
-    cpp|cc|cxx)
-        cd "$DIR"
-        # Find project root (look for CMakeLists.txt up to 3 levels up)
-        PROJECT_ROOT="$DIR"
-        for i in . .. ../.. ../../..; do
-            if [[ -f "$DIR/$i/CMakeLists.txt" ]]; then
-                PROJECT_ROOT="$(cd "$DIR/$i" && pwd)"
-                break
+            # Count how many files have a main function
+            MAIN_COUNT=$(grep -l '\s*\(int\|void\)\s\+main\s*(' *.c 2>/dev/null | wc -l | tr -d ' ')
+            if [[ "$MAIN_COUNT" -gt 1 ]]; then
+                # Multiple mains found - compile only the current file
+                clang -std=c11 -Wall -Wextra -o "/tmp/$NAME" "$FILE" && "/tmp/$NAME"
+            else
+                # Single or no main - compile all .c files together
+                clang -std=c11 -Wall -Wextra -o "/tmp/$NAME" *.c && "/tmp/$NAME"
             fi
-        done
-
-        if [[ -f "$PROJECT_ROOT/CMakeLists.txt" ]]; then
-            # CMake project
-            cd "$PROJECT_ROOT"
-            mkdir -p build && cd build
-            cmake .. && cmake --build .
-            # Find and run the executable (first one found)
-            EXEC=$(find . -maxdepth 1 -type f -perm +111 ! -name "*.cmake" | head -1)
-            [[ -n "$EXEC" ]] && "$EXEC"
-        elif [[ -f Makefile || -f makefile ]]; then
-            make && "./$(basename "$DIR")" 2>/dev/null || make run 2>/dev/null || ./main 2>/dev/null || ./a.out
-        else
-            # Compile all C++ files in directory
-            clang++ -std=c++17 -Wall -Wextra -o "/tmp/$NAME" *.cpp *.cc *.cxx 2>/dev/null || \
-            clang++ -std=c++17 -Wall -Wextra -o "/tmp/$NAME" *.cpp 2>/dev/null || \
-            clang++ -std=c++17 -Wall -Wextra -o "/tmp/$NAME" *.cc 2>/dev/null || \
-            clang++ -std=c++17 -Wall -Wextra -o "/tmp/$NAME" *.cxx && "/tmp/$NAME"
         fi
         ;;
     cs)
