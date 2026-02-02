@@ -2,7 +2,10 @@
   {
     "context": "Workspace",
     "bindings": {
-      "cmd-r": ["task::Spawn", { "task_name": "Run File" }]
+      "cmd-r": [
+        ["workspace::SaveActiveItem", {}],
+        ["task::Spawn", { "task_name": "Run File" }]
+      ]
     }
   }
 ]
