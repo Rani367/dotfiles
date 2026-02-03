@@ -2,10 +2,8 @@
   {
     "context": "Workspace",
     "bindings": {
-      "cmd-r": [
-        ["workspace::SaveActiveItem", {}],
-        ["task::Spawn", { "task_name": "Run File" }]
-      ]
+      "cmd-r": ["workspace::SendKeystrokes", "cmd-s ctrl-r"],
+      "ctrl-r": ["task::Spawn", { "task_name": "Run File" }]
     }
   }
 ]

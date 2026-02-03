@@ -17,7 +17,13 @@ case "$EXT" in
         python3 "$FILE"
         ;;
     c)
-        clang -std=c11 -Wall -Wextra -o "/tmp/$NAME" "$FILE" && "/tmp/$NAME"
+        DIR="$(dirname "$FILE")"
+        MAIN_COUNT=$(grep -l '\bmain\s*(' "$DIR"/*.c 2>/dev/null | wc -l)
+        if [[ $MAIN_COUNT -gt 1 ]]; then
+            clang -std=c11 -Wall -Wextra -o "/tmp/$NAME" "$FILE" && "/tmp/$NAME"
+        else
+            clang -std=c11 -Wall -Wextra -o "/tmp/$NAME" "$DIR"/*.c && "/tmp/$NAME"
+        fi
         ;;
     cs)
         cd "$(dirname "$FILE")" && dotnet run
