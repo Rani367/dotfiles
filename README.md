@@ -1,6 +1,6 @@
 # Dotfiles
 
-My dotfiles for Zed and WezTerm.
+My dotfiles for Neovim, Zed, and WezTerm.
 
 ## Install
 
@@ -22,6 +22,7 @@ cd ~/dotfiles
 
 ```
 dotfiles/
+├── nvim/          # Neovim config → ~/.config/nvim
 ├── zed/           # Zed config (macOS) → ~/Library/Application Support/Zed/
 ├── zed-windows/   # Zed config (Windows) → %APPDATA%\Zed\
 ├── wezterm/       # WezTerm config → ~/.wezterm.lua
@@ -41,6 +42,7 @@ This downloads Windows-compatible config files to `%APPDATA%\Zed\` including a P
 
 ## Requirements
 
+- [Neovim](https://neovim.io/) 0.11+
 - [Zed](https://zed.dev/)
 - [WezTerm](https://wezfurlong.org/wezterm/)
 - [FiraCode Nerd Font](https://www.nerdfonts.com/)

@@ -15,6 +15,7 @@ fi
 ZED_CONFIG="$HOME/Library/Application Support/Zed"
 
 # Backup existing configs if they're not already symlinks
+[ -e ~/.config/nvim ] && [ ! -L ~/.config/nvim ] && mv ~/.config/nvim ~/.config/nvim.bak
 [ -e "$ZED_CONFIG/settings.json" ] && [ ! -L "$ZED_CONFIG/settings.json" ] && mv "$ZED_CONFIG/settings.json" "$ZED_CONFIG/settings.json.bak"
 [ -e "$ZED_CONFIG/keymap.json" ] && [ ! -L "$ZED_CONFIG/keymap.json" ] && mv "$ZED_CONFIG/keymap.json" "$ZED_CONFIG/keymap.json.bak"
 [ -e "$ZED_CONFIG/tasks.json" ] && [ ! -L "$ZED_CONFIG/tasks.json" ] && mv "$ZED_CONFIG/tasks.json" "$ZED_CONFIG/tasks.json.bak"
@@ -22,6 +23,8 @@ ZED_CONFIG="$HOME/Library/Application Support/Zed"
 [ -e ~/.ignore ] && [ ! -L ~/.ignore ] && mv ~/.ignore ~/.ignore.bak
 
 # Create symlinks
+mkdir -p ~/.config
+ln -sf "$DOTFILES/nvim" ~/.config/nvim
 mkdir -p "$ZED_CONFIG"
 ln -sf "$DOTFILES/zed/settings.json" "$ZED_CONFIG/settings.json"
 ln -sf "$DOTFILES/zed/keymap.json" "$ZED_CONFIG/keymap.json"
