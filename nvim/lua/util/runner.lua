@@ -19,6 +19,9 @@ end
 
 local TERM_ID = "file_runner"
 
+-- solid background for runner terminal (tokyonight night bg)
+vim.api.nvim_set_hl(0, "RunnerTerminal", { bg = "#1a1b26" })
+
 local function has_main_function(filepath)
   local f = io.open(filepath, "r")
   if not f then return false end
@@ -139,6 +142,11 @@ function M.run_current_file()
         id = TERM_ID,
         auto_close = false,
         interactive = true,
+        win = {
+          position = "bottom",
+          height = 0.3,
+          wo = { winhighlight = "Normal:RunnerTerminal" },
+        },
       })
     end)
     if term_ok then return end
