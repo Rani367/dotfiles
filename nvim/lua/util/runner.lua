@@ -134,6 +134,7 @@ function M.run_current_file()
   end
 
   local full_cmd = "clear && " .. cmd
+  local win = vim.api.nvim_get_current_win()
 
   local ok, snacks = pcall(require, "snacks")
   if ok and snacks.terminal then
@@ -143,13 +144,15 @@ function M.run_current_file()
         auto_close = false,
         interactive = true,
         win = {
-          position = "bottom",
-          height = 0.3,
           wo = { winhighlight = "Normal:RunnerTerminal" },
         },
       })
     end)
-    if term_ok then return end
+    if term_ok then
+      -- keep relativenumber on in the editor window
+      vim.wo[win].relativenumber = true
+      return
+    end
   end
 
   vim.cmd("split | terminal " .. full_cmd)
