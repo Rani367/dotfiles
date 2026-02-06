@@ -1,5 +1,19 @@
-# Zed
-zed/conversations/
+# Zed runtime
+conversations/
+prompts/
+themes/
+extensions/
+languages/
+node/
+db/
+threads/
+debug_adapters/
+hang_traces/
+external_agents/
+development_credentials
+*.db
+*.sqlite*
+*.mdb
 
 # OS
 .DS_Store
