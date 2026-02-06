@@ -1,9 +1,0 @@
-[
-  {
-    "label": "Run File",
-    "command": "powershell -ExecutionPolicy Bypass -File \"$env:APPDATA\\Zed\\run.ps1\" \"$ZED_FILE\"",
-    "use_new_terminal": false,
-    "allow_concurrent_runs": false,
-    "reveal": "always"
-  }
-]

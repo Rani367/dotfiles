@@ -28,13 +28,7 @@ pnpm-lock.yaml
 *.woff2
 *.ttf
 
-# More cache dirs
-.turbo/
-.parcel-cache/
-.nx/
-.angular/
+# Build output
 bin/
 obj/
 vendor/
-.next/
-.nuxt/

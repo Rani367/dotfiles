@@ -49,14 +49,11 @@
     "basedpyright": {
       "settings": {
         "python": {
-          "pythonPath": "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3"
+          "pythonPath": "python3"
         },
         "basedpyright.analysis": {
           "diagnosticMode": "openFilesOnly",
-          "typeCheckingMode": "standard",
-          "extraPaths": [
-            "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages"
-          ]
+          "typeCheckingMode": "standard"
         }
       }
     },
