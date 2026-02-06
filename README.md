@@ -1,6 +1,6 @@
 # Dotfiles
 
-My dotfiles for Neovim and Zed.
+My dotfiles for Zed.
 
 ## Install
 
@@ -22,7 +22,6 @@ cd ~/dotfiles
 
 ```
 dotfiles/
-├── nvim/          # Neovim config → ~/.config/nvim
 ├── zed/           # Zed config (macOS) → ~/Library/Application Support/Zed/
 ├── zed-windows/   # Zed config (Windows) → %APPDATA%\Zed\
 └── install.sh     # Symlink installer (macOS)
@@ -40,6 +39,5 @@ This downloads Windows-compatible config files to `%APPDATA%\Zed\` including a P
 
 ## Requirements
 
-- [Neovim](https://neovim.io/) 0.11+
 - [Zed](https://zed.dev/)
-- [FiraCode Nerd Font](https://www.nerdfonts.com/)
+- [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
