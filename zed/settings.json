@@ -1,0 +1,143 @@
+// Zed settings
+{
+  "git_panel": {
+    "dock": "right",
+    "tree_view": false
+  },
+  "agent_servers": {
+    "claude": {
+      "default_config_options": {
+        "mode": "bypassPermissions"
+      }
+    }
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+  "project_panel": {
+    "button": false
+  },
+  "notification_panel": {
+    "button": false
+  },
+  "outline_panel": {
+    "button": false
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false,
+    "selections_menu": false
+  },
+  "title_bar": {
+    "show_branch_icon": false,
+    "show_branch_name": false
+  },
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "restore_on_startup": "last_session",
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "ui_font_size": 23,
+  "buffer_font_family": "JetBrains Mono",
+  "buffer_font_size": 23,
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "One Dark"
+  },
+  "autosave": "off",
+  "format_on_save": "on",
+  "formatter": "language_server",
+  "lsp": {
+    "basedpyright": {
+      "settings": {
+        "python": {
+          "pythonPath": "python3"
+        },
+        "basedpyright.analysis": {
+          "diagnosticMode": "openFilesOnly",
+          "typeCheckingMode": "standard"
+        }
+      }
+    },
+    "clangd": {
+      "binary": {
+        "arguments": [
+          "--background-index",
+          "--clang-tidy",
+          "--header-insertion=iwyu"
+        ]
+      }
+    }
+  },
+  "languages": {
+    "Python": {
+      "language_servers": ["basedpyright", "ruff"],
+      "formatter": [
+        {
+          "language_server": {
+            "name": "ruff"
+          }
+        }
+      ]
+    },
+    "C": {
+      "formatter": "language_server"
+    },
+    "C++": {
+      "formatter": "language_server"
+    },
+    "C#": {
+      "formatter": {
+        "external": {
+          "command": "dotnet",
+          "arguments": [
+            "csharpier",
+            "--write-stdout"
+          ]
+        }
+      }
+    },
+    "JSON": {
+      "formatter": {
+        "external": {
+          "command": "prettier",
+          "arguments": [
+            "--stdin-filepath",
+            "{buffer_path}"
+          ]
+        }
+      }
+    },
+    "YAML": {
+      "formatter": {
+        "external": {
+          "command": "prettier",
+          "arguments": [
+            "--stdin-filepath",
+            "{buffer_path}"
+          ]
+        }
+      }
+    },
+    "Markdown": {
+      "formatter": {
+        "external": {
+          "command": "prettier",
+          "arguments": [
+            "--stdin-filepath",
+            "{buffer_path}"
+          ]
+        }
+      }
+    }
+  }
+}
