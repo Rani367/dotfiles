@@ -1,0 +1,68 @@
+{
+  "function": {
+    "prefix": "fn",
+    "body": [
+      "function ${1:name}(${2})",
+      "\t${0}",
+      "end"
+    ],
+    "description": "Function"
+  },
+  "local function": {
+    "prefix": "lfn",
+    "body": [
+      "local function ${1:name}(${2})",
+      "\t${0}",
+      "end"
+    ],
+    "description": "Local function"
+  },
+  "require": {
+    "prefix": "req",
+    "body": "local ${1:module} = require(\"${2:$1}\")",
+    "description": "Require module"
+  },
+  "if": {
+    "prefix": "if",
+    "body": [
+      "if ${1:condition} then",
+      "\t${0}",
+      "end"
+    ],
+    "description": "If statement"
+  },
+  "if else": {
+    "prefix": "ife",
+    "body": [
+      "if ${1:condition} then",
+      "\t${2}",
+      "else",
+      "\t${0}",
+      "end"
+    ],
+    "description": "If-else statement"
+  },
+  "for ipairs": {
+    "prefix": "fori",
+    "body": [
+      "for ${1:i}, ${2:v} in ipairs(${3:t}) do",
+      "\t${0}",
+      "end"
+    ],
+    "description": "For loop with ipairs"
+  },
+  "for pairs": {
+    "prefix": "forp",
+    "body": [
+      "for ${1:k}, ${2:v} in pairs(${3:t}) do",
+      "\t${0}",
+      "end"
+    ],
+    "description": "For loop with pairs"
+  },
+  "local": {
+    "prefix": "loc",
+    "body": "local ${1:name} = ${0}",
+    "description": "Local variable"
+  }
+}

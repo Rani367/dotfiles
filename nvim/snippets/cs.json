@@ -1,0 +1,76 @@
+{
+  "class": {
+    "prefix": "class",
+    "body": [
+      "public class ${1:Name}",
+      "{",
+      "\t${0}",
+      "}"
+    ],
+    "description": "Class"
+  },
+  "constructor": {
+    "prefix": "ctor",
+    "body": [
+      "public ${1:ClassName}(${2})",
+      "{",
+      "\t${0}",
+      "}"
+    ],
+    "description": "Constructor"
+  },
+  "property": {
+    "prefix": "prop",
+    "body": "public ${1:int} ${2:Name} { get; set; }",
+    "description": "Auto property"
+  },
+  "method": {
+    "prefix": "method",
+    "body": [
+      "public ${1:void} ${2:Name}(${3})",
+      "{",
+      "\t${0}",
+      "}"
+    ],
+    "description": "Method"
+  },
+  "foreach": {
+    "prefix": "foreach",
+    "body": [
+      "foreach (var ${1:item} in ${2:collection})",
+      "{",
+      "\t${0}",
+      "}"
+    ],
+    "description": "Foreach loop"
+  },
+  "if": {
+    "prefix": "if",
+    "body": [
+      "if (${1:condition})",
+      "{",
+      "\t${0}",
+      "}"
+    ],
+    "description": "If statement"
+  },
+  "try catch": {
+    "prefix": "try",
+    "body": [
+      "try",
+      "{",
+      "\t${1}",
+      "}",
+      "catch (${2:Exception} ${3:ex})",
+      "{",
+      "\t${0}",
+      "}"
+    ],
+    "description": "Try-catch block"
+  },
+  "using": {
+    "prefix": "using",
+    "body": "using ${1:System};",
+    "description": "Using directive"
+  }
+}

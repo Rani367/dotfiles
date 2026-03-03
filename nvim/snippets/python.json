@@ -1,0 +1,63 @@
+{
+  "def": {
+    "prefix": "def",
+    "body": [
+      "def ${1:name}(${2}) -> ${3:None}:",
+      "\t${0}"
+    ],
+    "description": "Function definition"
+  },
+  "class": {
+    "prefix": "class",
+    "body": [
+      "class ${1:Name}:",
+      "\tdef __init__(self${2}):",
+      "\t\t${0}"
+    ],
+    "description": "Class definition"
+  },
+  "if main": {
+    "prefix": "ifmain",
+    "body": [
+      "if __name__ == \"__main__\":",
+      "\t${0}"
+    ],
+    "description": "If main guard"
+  },
+  "for": {
+    "prefix": "for",
+    "body": [
+      "for ${1:item} in ${2:iterable}:",
+      "\t${0}"
+    ],
+    "description": "For loop"
+  },
+  "with": {
+    "prefix": "with",
+    "body": [
+      "with ${1:expression} as ${2:var}:",
+      "\t${0}"
+    ],
+    "description": "With statement"
+  },
+  "try except": {
+    "prefix": "try",
+    "body": [
+      "try:",
+      "\t${1}",
+      "except ${2:Exception} as ${3:e}:",
+      "\t${0}"
+    ],
+    "description": "Try-except block"
+  },
+  "list comprehension": {
+    "prefix": "lc",
+    "body": "[${1:expr} for ${2:item} in ${3:iterable}]",
+    "description": "List comprehension"
+  },
+  "dict comprehension": {
+    "prefix": "dc",
+    "body": "{${1:key}: ${2:value} for ${3:item} in ${4:iterable}}",
+    "description": "Dict comprehension"
+  }
+}

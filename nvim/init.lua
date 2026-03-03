@@ -5,15 +5,44 @@ vim.g.mapleader = " "
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
+vim.o.termguicolors = true
 vim.pack.add({
     { src = "https://github.com/neovim/nvim-lspconfig.git" },
     { src = "https://github.com/saghen/blink.cmp.git" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter.git" },
     { src = "https://github.com/nvim-mini/mini.nvim.git" },
+    { src = "https://github.com/stevearc/conform.nvim.git" },
     { src = "https://github.com/ibhagwan/fzf-lua.git" },
+    { src = "https://github.com/catppuccin/nvim.git" },
+    { src = "https://github.com/nvim-lualine/lualine.nvim.git" },
+    { src = "https://github.com/nvim-tree/nvim-web-devicons.git" },
 })
-vim.cmd.colorscheme("habamax")
-vim.cmd("hi statusline guibg=NONE guifg=#bcbcbc")
+require("catppuccin").setup({
+    flavour = "mocha",
+    integrations = {
+        treesitter = true,
+        mini = { enabled = true },
+        blink_cmp = true,
+        fzf_lua = true,
+    },
+})
+vim.cmd.colorscheme("catppuccin")
+require("nvim-web-devicons").setup()
+require("lualine").setup({
+    options = {
+        theme = "catppuccin",
+        section_separators = { left = "", right = "" },
+        component_separators = { left = "", right = "" },
+    },
+    sections = {
+        lualine_a = { "mode" },
+        lualine_b = { "branch" },
+        lualine_c = { "filename" },
+        lualine_x = { "diagnostics" },
+        lualine_y = { "location" },
+        lualine_z = { "progress" },
+    },
+})
 require("mini.indentscope").setup({})
 require("mini.pairs").setup({})
 ----------------------------------------------------------------------
@@ -22,19 +51,39 @@ require("mini.pairs").setup({})
 vim.lsp.config("*", {
     flags = { debounce_text_changes = 0 }, -- make lsp faster
 })
-vim.lsp.enable({ "lua_ls", "basedpyright", "clangd", "csharp_ls" })
+vim.lsp.enable({ "lua_ls", "basedpyright", "ruff", "clangd", "csharp_ls" })
 local ts_parsers = { "lua", "c", "python", "c_sharp" }
 local nts = require("nvim-treesitter")
 vim.api.nvim_create_user_command("TSInstall", function() nts.install(ts_parsers) end, {})
 vim.api.nvim_create_user_command("TSUpdate", function() nts.update() end, {})
 require("blink.cmp").setup({
     keymap = { preset = "super-tab" },
-    sources = { default = { "buffer", "lsp", "path" } }, -- this is not the traditional way to do it, but i like the buffer to be first.
+    sources = { default = { "buffer", "lsp", "path", "snippets" } },
 })
 vim.api.nvim_create_autocmd("FileType", {
     callback = function()
         pcall(vim.treesitter.start)
     end,
+})
+-- Disable ruff hover in favor of basedpyright
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("RuffDisableHover", { clear = true }),
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client and client.name == "ruff" then
+      client.server_capabilities.hoverProvider = false
+    end
+  end,
+})
+require("conform").setup({
+  formatters_by_ft = {
+    lua = { "stylua" },
+    cs = { "csharpier" },
+  },
+  format_on_save = {
+    timeout_ms = 2000,
+    lsp_format = "fallback",
+  },
 })
 ----------------------------------------------------------------------
 -- fzf-lua

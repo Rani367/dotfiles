@@ -49,5 +49,8 @@
 # resize-overlay-duration = 4s 200ms
 font-family = "JetBrainsMono Nerd Font"
 font-size = 24
+theme = "Catppuccin Mocha"
+window-padding-x = 10
+window-padding-y = 10
 custom-shader = /Users/rani/Library/Application Support/com.mitchellh.ghostty/shaders/cursor_warp.glsl
 custom-shader-animation = always
