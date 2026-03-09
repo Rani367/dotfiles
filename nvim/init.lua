@@ -16,6 +16,7 @@ vim.pack.add({
     { src = "https://github.com/catppuccin/nvim.git" },
     { src = "https://github.com/nvim-lualine/lualine.nvim.git" },
     { src = "https://github.com/nvim-tree/nvim-web-devicons.git" },
+    { src = "https://github.com/stevearc/oil.nvim.git" },
 })
 require("catppuccin").setup({
     flavour = "mocha",
@@ -24,6 +25,7 @@ require("catppuccin").setup({
         mini = { enabled = true },
         blink_cmp = true,
         fzf_lua = true,
+        oil = true,
     },
 })
 vim.cmd.colorscheme("catppuccin")
@@ -60,18 +62,27 @@ require("blink.cmp").setup({
     keymap = { preset = "super-tab" },
     sources = { default = { "buffer", "lsp", "path", "snippets" } },
 })
+vim.diagnostic.config({
+    signs = false,
+    virtual_text = true,
+})
 vim.api.nvim_create_autocmd("FileType", {
     callback = function()
         pcall(vim.treesitter.start)
     end,
 })
--- Disable ruff hover in favor of basedpyright
 vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup("RuffDisableHover", { clear = true }),
+  group = vim.api.nvim_create_augroup("LspOverrides", { clear = true }),
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client and client.name == "ruff" then
+    if not client then return end
+    -- Disable ruff hover in favor of basedpyright
+    if client.name == "ruff" then
       client.server_capabilities.hoverProvider = false
+    end
+    -- Disable csharp_ls completion (use custom snippets instead)
+    if client.name == "csharp_ls" then
+      client.server_capabilities.completionProvider = nil
     end
   end,
 })
@@ -135,7 +146,12 @@ end
 require("fzf-lua").setup({
     files = { fd_opts = fd_opts },
 })
-vim.g.netrw_banner = 0
-vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
+require("oil").setup({
+    default_file_explorer = true,
+    view_options = {
+        show_hidden = true,
+    },
+})
+vim.keymap.set("n", "<leader>e", "<cmd>Oil<cr>")
 vim.keymap.set("n", "<leader>f", function() require("fzf-lua").files() end)
 vim.keymap.set("n", "<leader>g", function() require("fzf-lua").live_grep() end)
