@@ -11,7 +11,6 @@ vim.pack.add({
     { src = "https://github.com/saghen/blink.cmp.git" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter.git" },
     { src = "https://github.com/nvim-mini/mini.nvim.git" },
-    { src = "https://github.com/stevearc/conform.nvim.git" },
     { src = "https://github.com/ibhagwan/fzf-lua.git" },
     { src = "https://github.com/catppuccin/nvim.git" },
     { src = "https://github.com/nvim-lualine/lualine.nvim.git" },
@@ -85,16 +84,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
       client.server_capabilities.completionProvider = nil
     end
   end,
-})
-require("conform").setup({
-  formatters_by_ft = {
-    lua = { "stylua" },
-    cs = { "csharpier" },
-  },
-  format_on_save = {
-    timeout_ms = 2000,
-    lsp_format = "fallback",
-  },
 })
 ----------------------------------------------------------------------
 -- fzf-lua
