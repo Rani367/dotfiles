@@ -19,25 +19,13 @@ vim.pack.add({
 })
 require("catppuccin").setup({
     flavour = "mocha",
-    integrations = {
-        treesitter = true,
-        mini = { enabled = true },
-        blink_cmp = true,
-        fzf_lua = true,
-        oil = true,
-    },
 })
 vim.cmd.colorscheme("catppuccin")
 require("nvim-web-devicons").setup()
 require("lualine").setup({
-    options = {
-        theme = "catppuccin",
-        section_separators = { left = "", right = "" },
-        component_separators = { left = "", right = "" },
-    },
     sections = {
         lualine_a = { "mode" },
-        lualine_b = { "branch" },
+        lualine_b = { "branch", "diff" },
         lualine_c = { "filename" },
         lualine_x = { "diagnostics" },
         lualine_y = { "location" },
