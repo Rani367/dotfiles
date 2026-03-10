@@ -13,16 +13,16 @@ vim.pack.add({
     { src = "https://github.com/nvim-mini/mini.nvim.git" },
     { src = "https://github.com/ibhagwan/fzf-lua.git" },
     { src = "https://github.com/catppuccin/nvim.git" },
+    { src = "https://github.com/navarasu/onedark.nvim.git" },
     { src = "https://github.com/nvim-lualine/lualine.nvim.git" },
     { src = "https://github.com/nvim-tree/nvim-web-devicons.git" },
     { src = "https://github.com/stevearc/oil.nvim.git" },
 })
-require("catppuccin").setup({
-    flavour = "mocha",
-})
-vim.cmd.colorscheme("catppuccin")
+require("onedark").setup({ style = "dark" })
+require("onedark").load()
 require("nvim-web-devicons").setup()
 require("lualine").setup({
+    options = { theme = "onedark" },
     sections = {
         lualine_a = { "mode" },
         lualine_b = { "branch", "diff" },
@@ -37,9 +37,6 @@ require("mini.pairs").setup({})
 ----------------------------------------------------------------------
 -- LSP, treesitter, and completion
 ----------------------------------------------------------------------
-vim.lsp.config("*", {
-    flags = { debounce_text_changes = 0 }, -- make lsp faster
-})
 vim.lsp.enable({ "lua_ls", "basedpyright", "ruff", "clangd", "csharp_ls" })
 local ts_parsers = { "lua", "c", "python", "c_sharp" }
 local nts = require("nvim-treesitter")
@@ -59,19 +56,19 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup("LspOverrides", { clear = true }),
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if not client then return end
-    -- Disable ruff hover in favor of basedpyright
-    if client.name == "ruff" then
-      client.server_capabilities.hoverProvider = false
-    end
-    -- Disable csharp_ls completion (use custom snippets instead)
-    if client.name == "csharp_ls" then
-      client.server_capabilities.completionProvider = nil
-    end
-  end,
+    group = vim.api.nvim_create_augroup("LspOverrides", { clear = true }),
+    callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if not client then return end
+        -- Disable ruff hover in favor of basedpyright
+        if client.name == "ruff" then
+            client.server_capabilities.hoverProvider = false
+        end
+        -- Disable csharp_ls completion (use custom snippets instead)
+        if client.name == "csharp_ls" then
+            client.server_capabilities.completionProvider = nil
+        end
+    end,
 })
 ----------------------------------------------------------------------
 -- fzf-lua
