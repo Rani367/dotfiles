@@ -17,6 +17,8 @@ vim.pack.add({
     { src = "https://github.com/nvim-lualine/lualine.nvim.git" },
     { src = "https://github.com/nvim-tree/nvim-web-devicons.git" },
     { src = "https://github.com/stevearc/oil.nvim.git" },
+    { src = "https://github.com/mrcjkb/rustaceanvim.git" },
+    { src = "https://github.com/saecki/crates.nvim.git" },
 })
 require("onedark").setup({ style = "dark" })
 require("onedark").load()
@@ -38,7 +40,7 @@ require("mini.pairs").setup({})
 -- LSP, treesitter, and completion
 ----------------------------------------------------------------------
 vim.lsp.enable({ "lua_ls", "basedpyright", "ruff", "clangd", "csharp_ls" })
-local ts_parsers = { "lua", "c", "python", "c_sharp" }
+local ts_parsers = { "lua", "c", "python", "c_sharp", "rust", "toml" }
 local nts = require("nvim-treesitter")
 vim.api.nvim_create_user_command("TSInstall", function() nts.install(ts_parsers) end, {})
 vim.api.nvim_create_user_command("TSUpdate", function() nts.update() end, {})
@@ -69,6 +71,33 @@ vim.api.nvim_create_autocmd("LspAttach", {
             client.server_capabilities.completionProvider = nil
         end
     end,
+})
+----------------------------------------------------------------------
+-- Rust (rustaceanvim + crates.nvim)
+----------------------------------------------------------------------
+vim.g.rustaceanvim = {
+    server = {
+        default_settings = {
+            ["rust-analyzer"] = {
+                check = { command = "clippy" },
+                cargo = { allFeatures = true },
+                inlayHints = {
+                    bindingModeHints = { enable = true },
+                    closureCaptureHints = { enable = true },
+                    closureReturnTypeHints = { enable = "always" },
+                    lifetimeElisionHints = { enable = "always" },
+                },
+            },
+        },
+    },
+}
+require("crates").setup({
+    lsp = {
+        enabled = true,
+        actions = true,
+        completion = true,
+        hover = true,
+    },
 })
 ----------------------------------------------------------------------
 -- fzf-lua
@@ -107,6 +136,8 @@ local fd_excludes = {
     -- C# / .NET
     "bin", "obj", "*.suo", "*.user", "Debug", "Release",
     "packages", "artifacts", "*.nupkg", "*.snupkg", "TestResults",
+    -- Rust
+    "target",
     -- Neovim
     "nvim-pack-lock.json", ".luarc.json", "lazy-lock.json",
     -- Testing / CI
