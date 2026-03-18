@@ -12,7 +12,6 @@ vim.pack.add({
     { src = "https://github.com/nvim-treesitter/nvim-treesitter.git" },
     { src = "https://github.com/nvim-mini/mini.nvim.git" },
     { src = "https://github.com/ibhagwan/fzf-lua.git" },
-    { src = "https://github.com/catppuccin/nvim.git" },
     { src = "https://github.com/navarasu/onedark.nvim.git" },
     { src = "https://github.com/nvim-lualine/lualine.nvim.git" },
     { src = "https://github.com/nvim-tree/nvim-web-devicons.git" },
@@ -160,3 +159,6 @@ require("oil").setup({
 vim.keymap.set("n", "<leader>e", "<cmd>Oil<cr>")
 vim.keymap.set("n", "<leader>f", function() require("fzf-lua").files() end)
 vim.keymap.set("n", "<leader>g", function() require("fzf-lua").live_grep() end)
+vim.keymap.set("n", "<leader>w", "<cmd>w<cr>")
+vim.keymap.set("n", "<leader>q", "<cmd>wqa<cr>")
+vim.keymap.set("n", "<leader>Q", "<cmd>qa!<cr>")

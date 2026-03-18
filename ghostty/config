@@ -1,5 +1,5 @@
 font-family = "JetBrainsMono Nerd Font"
-font-size = 24
+font-size = 26
 custom-shader = /Users/rani/Library/Application Support/com.mitchellh.ghostty/shaders/cursor_warp.glsl
 custom-shader-animation = always
 maximize = true
