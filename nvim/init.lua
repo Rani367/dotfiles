@@ -1,11 +1,3 @@
-vim.o.relativenumber = true
-vim.o.number = true
-vim.o.cmdheight = 0
-vim.g.mapleader = " "
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
-vim.o.expandtab = true
-vim.o.termguicolors = true
 vim.pack.add({
     { src = "https://github.com/neovim/nvim-lspconfig.git" },
     { src = "https://github.com/saghen/blink.cmp.git" },
@@ -19,20 +11,17 @@ vim.pack.add({
     { src = "https://github.com/mrcjkb/rustaceanvim.git" },
     { src = "https://github.com/saecki/crates.nvim.git" },
 })
-require("onedark").setup({ style = "dark" })
+vim.o.relativenumber = true
+vim.o.number = true
+vim.o.cmdheight = 0
+vim.g.mapleader = " "
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+vim.o.termguicolors = true
 require("onedark").load()
 require("nvim-web-devicons").setup()
-require("lualine").setup({
-    options = { theme = "onedark" },
-    sections = {
-        lualine_a = { "mode" },
-        lualine_b = { "branch", "diff" },
-        lualine_c = { "filename" },
-        lualine_x = { "diagnostics" },
-        lualine_y = { "location" },
-        lualine_z = { "progress" },
-    },
-})
+require("lualine").setup({})
 require("mini.indentscope").setup({})
 require("mini.pairs").setup({})
 ----------------------------------------------------------------------
