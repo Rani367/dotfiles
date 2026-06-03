@@ -5,10 +5,8 @@
     "tree_view": false
   },
   "agent_servers": {
-    "claude": {
-      "default_config_options": {
-        "mode": "bypassPermissions"
-      }
+    "claude-acp": {
+      "type": "registry"
     }
   },
   "collaboration_panel": {
