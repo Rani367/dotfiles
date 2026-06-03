@@ -1,5 +1,10 @@
 // Zed settings
 {
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": []
+  },
   "git_panel": {
     "dock": "right",
     "tree_view": false
@@ -13,7 +18,8 @@
     "button": false
   },
   "project_panel": {
-    "button": false
+    "dock": "left",
+    "button": true
   },
   "notification_panel": {
     "button": false
