@@ -1,5 +1,7 @@
 // Zed settings
 {
+  "proxy": "",
+  "disable_ai": false,
   "agent": {
     "dock": "right",
     "favorite_models": [],
@@ -11,6 +13,11 @@
   },
   "agent_servers": {
     "claude-acp": {
+      "default_config_options": {
+        "fast": "on",
+        "mode": "bypassPermissions",
+        "model": "claude-opus-4-8"
+      },
       "type": "registry"
     }
   },
@@ -33,7 +40,6 @@
     "selections_menu": false
   },
   "title_bar": {
-    "show_branch_icon": false,
     "show_branch_name": false
   },
   "session": {
@@ -99,7 +105,8 @@
     "C++": {
       "formatter": "language_server"
     },
-    "C#": {
+    "CSharp": {
+      "language_servers": ["roslyn", "!csharp-ls", "!omnisharp", "..."],
       "formatter": {
         "external": {
           "command": "dotnet",
