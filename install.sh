@@ -14,5 +14,6 @@ link() {
 }
 
 link "$DOTFILES/zed" "$HOME/.config/zed"
+link "$DOTFILES/helix" "$HOME/.config/helix"
 link "$DOTFILES/ghostty/config" "$GHOSTTY_DIR/config"
 link "$DOTFILES/ghostty/shaders" "$GHOSTTY_DIR/shaders"
