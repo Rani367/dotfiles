@@ -2,5 +2,6 @@ font-family = "JetBrainsMono Nerd Font"
 font-size = 26
 custom-shader = /Users/rani/Library/Application Support/com.mitchellh.ghostty/shaders/cursor_warp.glsl
 custom-shader-animation = always
+cursor-color = #ffffff
 maximize = true
 macos-option-as-alt = left

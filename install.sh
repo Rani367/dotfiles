@@ -13,6 +13,7 @@ link() {
     echo "linked $2 -> $1"
 }
 
+link "$DOTFILES/nvim" "$HOME/.config/nvim"
 link "$DOTFILES/zed" "$HOME/.config/zed"
 link "$DOTFILES/helix" "$HOME/.config/helix"
 link "$DOTFILES/ghostty/config" "$GHOSTTY_DIR/config"
