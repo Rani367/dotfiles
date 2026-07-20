@@ -1,5 +1,6 @@
 vim.pack.add({
     { src = "https://github.com/neovim/nvim-lspconfig.git" },
+    { src = "https://github.com/saghen/blink.lib.git" },
     { src = "https://github.com/saghen/blink.cmp.git" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter.git" },
     { src = "https://github.com/nvim-mini/mini.nvim.git" },
