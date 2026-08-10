@@ -33,7 +33,9 @@ local ts_parsers = { "lua", "c", "python", "c_sharp", "rust", "toml" }
 local nts = require("nvim-treesitter")
 vim.api.nvim_create_user_command("TSInstall", function() nts.install(ts_parsers) end, {})
 vim.api.nvim_create_user_command("TSUpdate", function() nts.update() end, {})
-require("blink.cmp").setup({
+local blink = require("blink.cmp")
+blink.build():pwait()
+blink.setup({
     keymap = { preset = "super-tab" },
     sources = { default = { "buffer", "lsp", "path", "snippets" } },
 })
